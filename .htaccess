@@ -1,4 +1,64 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^mraa-uae.com [NC]
+RewriteRule ^(.*)$ https://www.mraa-uae.com/$1 [L,R=301,NC]
 
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+    DirectoryIndex index.php # This line does the trick
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# # BEGIN cPanel-generated php ini directives, do not edit
+# # Manual editing of this file may result in unexpected behavior.
+# # To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# # For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+# <IfModule php7_module>
+#   php_flag display_errors On
+#   php_value max_execution_time 3000
+#   php_value max_input_time 6000
+#   php_value max_input_vars 1000
+#   php_value memory_limit 8000M
+#   php_value post_max_size 1228M
+#   php_value session.gc_maxlifetime 1440
+#   php_value session.save_path "/var/cpanel/php/sessions/ea-php72"
+#   php_value upload_max_filesize 1222M
+#   php_flag zlib.output_compression On
+# </IfModule>
+# <IfModule lsapi_module>
+#   php_flag display_errors On
+#   php_value max_execution_time 3000
+#   php_value max_input_time 6000
+#   php_value max_input_vars 1000
+#   php_value memory_limit 8000M
+#   php_value post_max_size 1228M
+#   php_value session.gc_maxlifetime 1440
+#   php_value session.save_path "/var/cpanel/php/sessions/ea-php72"
+#   php_value upload_max_filesize 1222M
+#   php_flag zlib.output_compression On
+# </IfModule>
+# # END cPanel-generated php ini directives, do not edit
 
 # php -- BEGIN cPanel-generated handler, do not edit
 # Set the “ea-php81” package as the default “PHP” programming language.
