@@ -1,4 +1,4 @@
-<link rel="shortcut icon" type="image/png" href="{{ asset('backend/assets/images/icon/favicon.ico') }}">
+<link rel="shortcut icon" type="image/png" href="{{ asset('favicon.ico') }}">
 <link rel="stylesheet" href="{{ asset('backend/assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('backend/assets/css/font-awesome.min.css') }}">
 <link rel="stylesheet" href="{{ asset('backend/assets/css/themify-icons.css') }}">
@@ -14,3 +14,9 @@
 <link rel="stylesheet" href="{{ asset('backend/assets/css/responsive.css') }}">
 <!-- modernizr css -->
 <script src="{{ asset('backend/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+
+<link rel="stylesheet" href="{{ asset('backend/assets/css/default.css') }}">
+<link rel="stylesheet" href="{{ asset('backend/assets/css/LineIcons.css') }}">
+<link rel="stylesheet" href="{{ asset('backend/assets/css/magnific-popup.css') }}">
+<link rel="stylesheet" href="{{ asset('backend/assets/css/slick.css') }}">
+<link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">

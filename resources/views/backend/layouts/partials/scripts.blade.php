@@ -15,8 +15,9 @@
 <!-- start zingchart js -->
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 <script>
-zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+    zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+
 </script>
 <!-- all line chart activation -->
 <script src="{{ asset('backend/assets/js/line-chart.js') }}"></script>
@@ -25,3 +26,10 @@ ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3eda
 <!-- others plugins -->
 <script src="{{ asset('backend/assets/js/plugins.js') }}"></script>
 <script src="{{ asset('backend/assets/js/scripts.js') }}"></script>
+
+<script src="{{ asset('backend/assets/js/main.js') }}"></script>
+<script src="{{ asset('backend/assets/js/imagesloaded.pkgd.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/jquery.easing.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/scrolling-nav.js') }}"></script>
+<script src="{{ asset('backend/assets/js/slick.js') }}"></script>
