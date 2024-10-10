@@ -32,4 +32,4 @@
 <script src="{{ asset('backend/assets/js/isotope.pkgd.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/jquery.easing.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/scrolling-nav.js') }}"></script>
-<script src="{{ asset('backend/assets/js/slick.js') }}"></script>
+<script src="{{ asset('backend/assets/js/slick.min.js') }}"></script>

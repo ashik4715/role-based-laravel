@@ -350,7 +350,7 @@
 
 <!--====== ABOUT PART START ======-->
 
-<section id="about" class="about-area">
+{{-- <section id="about" class="about-area">
     <div class="section-title text-center pb-10">
         <h3 class="title">You are using free lite version</h3>
         <p class="text">Please, purchase full version to get all pages and features</p>
@@ -358,7 +358,7 @@
             <a href="https://rebrand.ly/smash-ud" rel="nofollow" class="main-btn light-rounded-two">Purchase Now</a>
         </div>
     </div> <!-- section title -->
-</section>
+</section> --}}
 
 <!--====== ABOUT PART ENDS ======-->
 
