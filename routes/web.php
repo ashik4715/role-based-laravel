@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Auth\ForgotPasswordController;
 use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\RolesController;
+use App\Http\Controllers\ApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,9 @@ use App\Http\Controllers\Backend\RolesController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/test', function () {
+    return view('test');
+});
 
 Auth::routes();
 
@@ -47,4 +48,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     // Forget Password Routes.
     Route::get('/password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
     Route::post('/password/reset/submit', [ForgotPasswordController::class, 'reset'])->name('password.update');
+
+    // my-routes
+    Route::get('/view-json/{id}', [ApplicationController::class, 'viewJson'])->name('view.json');
+    Route::delete('/applications/{id}', [ApplicationController::class, 'destroy'])->name('applications.destroy');
+
 })->middleware('auth:admin');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

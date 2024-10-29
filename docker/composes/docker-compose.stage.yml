@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  partner-service:
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    environment:
+      SERVICE_NAME: app
+    working_dir: /var/www
+    entrypoint: /etc/entrypoint.sh
+    volumes:
+      - ../../:/var/www
+      - ../../composer-auth.json:/root/.composer/auth.json
+      - ../nginx/conf.d/nginx-dev.conf:/etc/nginx/sites-enabled/default
+      - ../php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ../php/memory_limit.ini:/usr/local/etc/php/conf.d/memory_limit.ini
+      - ../php/php.ini:/usr/local/etc/php/conf.d/php.override.ini
+      - ../php/conf.d/www.local.conf:/usr/local/etc/php-fpm.d/www.conf
+    ports:
+      - ${PORT}:80
+
+networks:
+  partner-service-network:
+    external:
+      name: ${EXTERNAL_NETWORK}

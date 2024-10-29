@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  wegro-farmer-new-service:
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    environment:
+      SERVICE_NAME: app
+      VIRTUAL_HOST: ${VIRTUAL_HOST_DOMAIN}
+    working_dir: /var/www
+    entrypoint: /etc/entrypoint.sh
+    networks:
+      - wegro_development_network
+    volumes:
+      - ../../:/var/www
+      - ../supervisor/conf.d/horizon.conf:/etc/supervisor/conf.d/horizon.conf
+      - ../nginx/conf.d/nginx-dev.conf:/etc/nginx/sites-enabled/default
+      - ../php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ../php/memory_limit.ini:/usr/local/etc/php/conf.d/memory_limit.ini
+      - ../php/php.ini:/usr/local/etc/php/conf.d/php.override.ini
+      - ../php/conf.d/www.local.conf:/usr/local/etc/php-fpm.d/www.conf
+    ports:
+      - ${PORT}:80
+
+networks:
+  wegro_development_network:
+    name: ${EXTERNAL_NETWORK}

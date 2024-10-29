@@ -1,0 +1,2328 @@
+{
+  "banks": [
+      {
+          "name": "City Bank",
+          "name_bn": "সিটি ব্যাংক",
+          "districts": [
+              {
+                  "name": "Dhaka",
+                  "name_bn": "ঢাকা",
+                  "branches": [
+                      {
+                          "name": "Banani",
+                          "name_bn": "বনানী"
+                      },
+                      {
+                          "name": "Mohakhali",
+                          "name_bn": "মহাখালী"
+                      },
+                      {
+                          "name": "Badda",
+                          "name_bn": "বাড্ডা"
+                      },
+                      {
+                          "name": "Motijheel",
+                          "name_bn": "মতিঝিল"
+                      },
+                      {
+                          "name": "Mohammadpur",
+                          "name_bn": "মোহাম্মদপুর"
+                      },
+                      {
+                          "name": "Gulshan",
+                          "name_bn": "গুলশান"
+                      },
+                      {
+                          "name": "Farmgate",
+                          "name_bn": "ফার্মগেট"
+                      },
+                      {
+                          "name": "Gulshan Avenue",
+                          "name_bn": "গুলশান এভিনিউ"
+                      },
+                      {
+                          "name": "Malibagh",
+                          "name_bn": "মালিবাগ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Chittagong",
+                  "name_bn": "চট্টগ্রাম",
+                  "branches": [
+                      {
+                          "name": "Cumilla",
+                          "name_bn": "কুমিল্লা"
+                      },
+                      {
+                          "name": "Chittagong",
+                          "name_bn": "চট্টগ্রাম"
+                      },
+                      {
+                          "name": "Agrabad",
+                          "name_bn": "আগ্রাবাদ"
+                      },
+                      {
+                          "name": "Halishahar",
+                          "name_bn": "হালিশহর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Khulna",
+                  "name_bn": "খুলনা",
+                  "branches": [
+                      {
+                          "name": "Khulna",
+                          "name_bn": "খুলনা"
+                      },
+                      {
+                          "name": "Shatkhira",
+                          "name_bn": "সাতক্ষীরা"
+                      },
+                      {
+                          "name": "Bagherhaat",
+                          "name_bn": "বাগেরহাট"
+                      },
+                      {
+                          "name": "Jessore",
+                          "name_bn": "যশোর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Barishal",
+                  "name_bn": "বরিশাল",
+                  "branches": [
+                      {
+                          "name": "Barishal",
+                          "name_bn": "বরিশাল"
+                      },
+                      {
+                          "name": "Bhola",
+                          "name_bn": "ভোলা"
+                      },
+                      {
+                          "name": "Jhalokati",
+                          "name_bn": "ঝালকাঠি"
+                      },
+                      {
+                          "name": "Patuakhali",
+                          "name_bn": "পটুয়াখালী"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rajshahi",
+                  "name_bn": "রাজশাহী",
+                  "branches": [
+                      {
+                          "name": "Rajshahi",
+                          "name_bn": "রাজশাহী"
+                      },
+                      {
+                          "name": "Sirajgonj",
+                          "name_bn": "সিরাজগঞ্জ"
+                      },
+                      {
+                          "name": "Pabna",
+                          "name_bn": "পাবনা"
+                      },
+                      {
+                          "name": "Nawabganj",
+                          "name_bn": "নবাবগঞ্জ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rangpur",
+                  "name_bn": "রংপুর",
+                  "branches": [
+                      {
+                          "name": "Dinajpur",
+                          "name_bn": "দিনাজপুর"
+                      },
+                      {
+                          "name": "Gaibandha",
+                          "name_bn": "গাইবান্ধা"
+                      },
+                      {
+                          "name": "Kurigram",
+                          "name_bn": "কুড়িগ্রাম"
+                      },
+                      {
+                          "name": "Lalmonirhat",
+                          "name_bn": "লালমনিরহাট"
+                      },
+                      {
+                          "name": "Nilphamari",
+                          "name_bn": "নীলফামারী"
+                      },
+                      {
+                          "name": "Panchagarh",
+                          "name_bn": "পঞ্চগড়"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "name": "Brac Bank",
+          "name_bn": "ব্র্যাক ব্যাংক",
+          "districts": [
+              {
+                  "name": "Dhaka",
+                  "name_bn": "ঢাকা",
+                  "branches": [
+                      {
+                          "name": "Banani",
+                          "name_bn": "বনানী"
+                      },
+                      {
+                          "name": "Mohakhali",
+                          "name_bn": "মহাখালী"
+                      },
+                      {
+                          "name": "Badda",
+                          "name_bn": "বাড্ডা"
+                      },
+                      {
+                          "name": "Motijheel",
+                          "name_bn": "মতিঝিল"
+                      },
+                      {
+                          "name": "Mohammadpur",
+                          "name_bn": "মোহাম্মদপুর"
+                      },
+                      {
+                          "name": "Gulshan",
+                          "name_bn": "গুলশান"
+                      },
+                      {
+                          "name": "Farmgate",
+                          "name_bn": "ফার্মগেট"
+                      },
+                      {
+                          "name": "Gulshan Avenue",
+                          "name_bn": "গুলশান এভিনিউ"
+                      },
+                      {
+                          "name": "Malibagh",
+                          "name_bn": "মালিবাগ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Chittagong",
+                  "name_bn": "চট্টগ্রাম",
+                  "branches": [
+                      {
+                          "name": "Cumilla",
+                          "name_bn": "কুমিল্লা"
+                      },
+                      {
+                          "name": "Chittagong",
+                          "name_bn": "চট্টগ্রাম"
+                      },
+                      {
+                          "name": "Agrabad",
+                          "name_bn": "আগ্রাবাদ"
+                      },
+                      {
+                          "name": "Halishahar",
+                          "name_bn": "হালিশহর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Khulna",
+                  "name_bn": "খুলনা",
+                  "branches": [
+                      {
+                          "name": "Khulna",
+                          "name_bn": "খুলনা"
+                      },
+                      {
+                          "name": "Shatkhira",
+                          "name_bn": "সাতক্ষীরা"
+                      },
+                      {
+                          "name": "Bagherhaat",
+                          "name_bn": "বাগেরহাট"
+                      },
+                      {
+                          "name": "Jessore",
+                          "name_bn": "যশোর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Barishal",
+                  "name_bn": "বরিশাল",
+                  "branches": [
+                      {
+                          "name": "Barishal",
+                          "name_bn": "বরিশাল"
+                      },
+                      {
+                          "name": "Bhola",
+                          "name_bn": "ভোলা"
+                      },
+                      {
+                          "name": "Jhalokati",
+                          "name_bn": "ঝালকাঠি"
+                      },
+                      {
+                          "name": "Patuakhali",
+                          "name_bn": "পটুয়াখালী"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rajshahi",
+                  "name_bn": "রাজশাহী",
+                  "branches": [
+                      {
+                          "name": "Rajshahi",
+                          "name_bn": "রাজশাহী"
+                      },
+                      {
+                          "name": "Sirajgonj",
+                          "name_bn": "সিরাজগঞ্জ"
+                      },
+                      {
+                          "name": "Pabna",
+                          "name_bn": "পাবনা"
+                      },
+                      {
+                          "name": "Nawabganj",
+                          "name_bn": "নবাবগঞ্জ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rangpur",
+                  "name_bn": "রংপুর",
+                  "branches": [
+                      {
+                          "name": "Dinajpur",
+                          "name_bn": "দিনাজপুর"
+                      },
+                      {
+                          "name": "Gaibandha",
+                          "name_bn": "গাইবান্ধা"
+                      },
+                      {
+                          "name": "Kurigram",
+                          "name_bn": "কুড়িগ্রাম"
+                      },
+                      {
+                          "name": "Lalmonirhat",
+                          "name_bn": "লালমনিরহাট"
+                      },
+                      {
+                          "name": "Nilphamari",
+                          "name_bn": "নীলফামারী"
+                      },
+                      {
+                          "name": "Panchagarh",
+                          "name_bn": "পঞ্চগড়"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "name": "Al Arafah Islami Bank",
+          "name_bn": "আল আরাফাহ্‌ ইসলামী ব্যাংক",
+          "districts": [
+              {
+                  "name": "Dhaka",
+                  "name_bn": "ঢাকা",
+                  "branches": [
+                      {
+                          "name": "Banani",
+                          "name_bn": "বনানী"
+                      },
+                      {
+                          "name": "Mohakhali",
+                          "name_bn": "মহাখালী"
+                      },
+                      {
+                          "name": "Badda",
+                          "name_bn": "বাড্ডা"
+                      },
+                      {
+                          "name": "Motijheel",
+                          "name_bn": "মতিঝিল"
+                      },
+                      {
+                          "name": "Mohammadpur",
+                          "name_bn": "মোহাম্মদপুর"
+                      },
+                      {
+                          "name": "Gulshan",
+                          "name_bn": "গুলশান"
+                      },
+                      {
+                          "name": "Farmgate",
+                          "name_bn": "ফার্মগেট"
+                      },
+                      {
+                          "name": "Gulshan Avenue",
+                          "name_bn": "গুলশান এভিনিউ"
+                      },
+                      {
+                          "name": "Malibagh",
+                          "name_bn": "মালিবাগ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Chittagong",
+                  "name_bn": "চট্টগ্রাম",
+                  "branches": [
+                      {
+                          "name": "Cumilla",
+                          "name_bn": "কুমিল্লা"
+                      },
+                      {
+                          "name": "Chittagong",
+                          "name_bn": "চট্টগ্রাম"
+                      },
+                      {
+                          "name": "Agrabad",
+                          "name_bn": "আগ্রাবাদ"
+                      },
+                      {
+                          "name": "Halishahar",
+                          "name_bn": "হালিশহর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Khulna",
+                  "name_bn": "খুলনা",
+                  "branches": [
+                      {
+                          "name": "Khulna",
+                          "name_bn": "খুলনা"
+                      },
+                      {
+                          "name": "Shatkhira",
+                          "name_bn": "সাতক্ষীরা"
+                      },
+                      {
+                          "name": "Bagherhaat",
+                          "name_bn": "বাগেরহাট"
+                      },
+                      {
+                          "name": "Jessore",
+                          "name_bn": "যশোর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Barishal",
+                  "name_bn": "বরিশাল",
+                  "branches": [
+                      {
+                          "name": "Barishal",
+                          "name_bn": "বরিশাল"
+                      },
+                      {
+                          "name": "Bhola",
+                          "name_bn": "ভোলা"
+                      },
+                      {
+                          "name": "Jhalokati",
+                          "name_bn": "ঝালকাঠি"
+                      },
+                      {
+                          "name": "Patuakhali",
+                          "name_bn": "পটুয়াখালী"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rajshahi",
+                  "name_bn": "রাজশাহী",
+                  "branches": [
+                      {
+                          "name": "Rajshahi",
+                          "name_bn": "রাজশাহী"
+                      },
+                      {
+                          "name": "Sirajgonj",
+                          "name_bn": "সিরাজগঞ্জ"
+                      },
+                      {
+                          "name": "Pabna",
+                          "name_bn": "পাবনা"
+                      },
+                      {
+                          "name": "Nawabganj",
+                          "name_bn": "নবাবগঞ্জ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rangpur",
+                  "name_bn": "রংপুর",
+                  "branches": [
+                      {
+                          "name": "Dinajpur",
+                          "name_bn": "দিনাজপুর"
+                      },
+                      {
+                          "name": "Gaibandha",
+                          "name_bn": "গাইবান্ধা"
+                      },
+                      {
+                          "name": "Kurigram",
+                          "name_bn": "কুড়িগ্রাম"
+                      },
+                      {
+                          "name": "Lalmonirhat",
+                          "name_bn": "লালমনিরহাট"
+                      },
+                      {
+                          "name": "Nilphamari",
+                          "name_bn": "নীলফামারী"
+                      },
+                      {
+                          "name": "Panchagarh",
+                          "name_bn": "পঞ্চগড়"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "name": "Shahjalal Islami Bank",
+          "name_bn": "শাহজালাল ইসলামী ব্যাংক",
+          "districts": [
+              {
+                  "name": "Dhaka",
+                  "name_bn": "ঢাকা",
+                  "branches": [
+                      {
+                          "name": "Banani",
+                          "name_bn": "বনানী"
+                      },
+                      {
+                          "name": "Mohakhali",
+                          "name_bn": "মহাখালী"
+                      },
+                      {
+                          "name": "Badda",
+                          "name_bn": "বাড্ডা"
+                      },
+                      {
+                          "name": "Motijheel",
+                          "name_bn": "মতিঝিল"
+                      },
+                      {
+                          "name": "Mohammadpur",
+                          "name_bn": "মোহাম্মদপুর"
+                      },
+                      {
+                          "name": "Gulshan",
+                          "name_bn": "গুলশান"
+                      },
+                      {
+                          "name": "Farmgate",
+                          "name_bn": "ফার্মগেট"
+                      },
+                      {
+                          "name": "Gulshan Avenue",
+                          "name_bn": "গুলশান এভিনিউ"
+                      },
+                      {
+                          "name": "Malibagh",
+                          "name_bn": "মালিবাগ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Chittagong",
+                  "name_bn": "চট্টগ্রাম",
+                  "branches": [
+                      {
+                          "name": "Cumilla",
+                          "name_bn": "কুমিল্লা"
+                      },
+                      {
+                          "name": "Chittagong",
+                          "name_bn": "চট্টগ্রাম"
+                      },
+                      {
+                          "name": "Agrabad",
+                          "name_bn": "আগ্রাবাদ"
+                      },
+                      {
+                          "name": "Halishahar",
+                          "name_bn": "হালিশহর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Khulna",
+                  "name_bn": "খুলনা",
+                  "branches": [
+                      {
+                          "name": "Khulna",
+                          "name_bn": "খুলনা"
+                      },
+                      {
+                          "name": "Shatkhira",
+                          "name_bn": "সাতক্ষীরা"
+                      },
+                      {
+                          "name": "Bagherhaat",
+                          "name_bn": "বাগেরহাট"
+                      },
+                      {
+                          "name": "Jessore",
+                          "name_bn": "যশোর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Barishal",
+                  "name_bn": "বরিশাল",
+                  "branches": [
+                      {
+                          "name": "Barishal",
+                          "name_bn": "বরিশাল"
+                      },
+                      {
+                          "name": "Bhola",
+                          "name_bn": "ভোলা"
+                      },
+                      {
+                          "name": "Jhalokati",
+                          "name_bn": "ঝালকাঠি"
+                      },
+                      {
+                          "name": "Patuakhali",
+                          "name_bn": "পটুয়াখালী"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rajshahi",
+                  "name_bn": "রাজশাহী",
+                  "branches": [
+                      {
+                          "name": "Rajshahi",
+                          "name_bn": "রাজশাহী"
+                      },
+                      {
+                          "name": "Sirajgonj",
+                          "name_bn": "সিরাজগঞ্জ"
+                      },
+                      {
+                          "name": "Pabna",
+                          "name_bn": "পাবনা"
+                      },
+                      {
+                          "name": "Nawabganj",
+                          "name_bn": "নবাবগঞ্জ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rangpur",
+                  "name_bn": "রংপুর",
+                  "branches": [
+                      {
+                          "name": "Dinajpur",
+                          "name_bn": "দিনাজপুর"
+                      },
+                      {
+                          "name": "Gaibandha",
+                          "name_bn": "গাইবান্ধা"
+                      },
+                      {
+                          "name": "Kurigram",
+                          "name_bn": "কুড়িগ্রাম"
+                      },
+                      {
+                          "name": "Lalmonirhat",
+                          "name_bn": "লালমনিরহাট"
+                      },
+                      {
+                          "name": "Nilphamari",
+                          "name_bn": "নীলফামারী"
+                      },
+                      {
+                          "name": "Panchagarh",
+                          "name_bn": "পঞ্চগড়"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "name": "Islami Bank",
+          "name_bn": "ইসলামী ব্যাংক",
+          "districts": [
+              {
+                  "name": "Dhaka",
+                  "name_bn": "ঢাকা",
+                  "branches": [
+                      {
+                          "name": "Banani",
+                          "name_bn": "বনানী"
+                      },
+                      {
+                          "name": "Mohakhali",
+                          "name_bn": "মহাখালী"
+                      },
+                      {
+                          "name": "Badda",
+                          "name_bn": "বাড্ডা"
+                      },
+                      {
+                          "name": "Motijheel",
+                          "name_bn": "মতিঝিল"
+                      },
+                      {
+                          "name": "Mohammadpur",
+                          "name_bn": "মোহাম্মদপুর"
+                      },
+                      {
+                          "name": "Gulshan",
+                          "name_bn": "গুলশান"
+                      },
+                      {
+                          "name": "Farmgate",
+                          "name_bn": "ফার্মগেট"
+                      },
+                      {
+                          "name": "Gulshan Avenue",
+                          "name_bn": "গুলশান এভিনিউ"
+                      },
+                      {
+                          "name": "Malibagh",
+                          "name_bn": "মালিবাগ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Chittagong",
+                  "name_bn": "চট্টগ্রাম",
+                  "branches": [
+                      {
+                          "name": "Cumilla",
+                          "name_bn": "কুমিল্লা"
+                      },
+                      {
+                          "name": "Chittagong",
+                          "name_bn": "চট্টগ্রাম"
+                      },
+                      {
+                          "name": "Agrabad",
+                          "name_bn": "আগ্রাবাদ"
+                      },
+                      {
+                          "name": "Halishahar",
+                          "name_bn": "হালিশহর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Khulna",
+                  "name_bn": "খুলনা",
+                  "branches": [
+                      {
+                          "name": "Khulna",
+                          "name_bn": "খুলনা"
+                      },
+                      {
+                          "name": "Shatkhira",
+                          "name_bn": "সাতক্ষীরা"
+                      },
+                      {
+                          "name": "Bagherhaat",
+                          "name_bn": "বাগেরহাট"
+                      },
+                      {
+                          "name": "Jessore",
+                          "name_bn": "যশোর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Barishal",
+                  "name_bn": "বরিশাল",
+                  "branches": [
+                      {
+                          "name": "Barishal",
+                          "name_bn": "বরিশাল"
+                      },
+                      {
+                          "name": "Bhola",
+                          "name_bn": "ভোলা"
+                      },
+                      {
+                          "name": "Jhalokati",
+                          "name_bn": "ঝালকাঠি"
+                      },
+                      {
+                          "name": "Patuakhali",
+                          "name_bn": "পটুয়াখালী"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rajshahi",
+                  "name_bn": "রাজশাহী",
+                  "branches": [
+                      {
+                          "name": "Rajshahi",
+                          "name_bn": "রাজশাহী"
+                      },
+                      {
+                          "name": "Sirajgonj",
+                          "name_bn": "সিরাজগঞ্জ"
+                      },
+                      {
+                          "name": "Pabna",
+                          "name_bn": "পাবনা"
+                      },
+                      {
+                          "name": "Nawabganj",
+                          "name_bn": "নবাবগঞ্জ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rangpur",
+                  "name_bn": "রংপুর",
+                  "branches": [
+                      {
+                          "name": "Dinajpur",
+                          "name_bn": "দিনাজপুর"
+                      },
+                      {
+                          "name": "Gaibandha",
+                          "name_bn": "গাইবান্ধা"
+                      },
+                      {
+                          "name": "Kurigram",
+                          "name_bn": "কুড়িগ্রাম"
+                      },
+                      {
+                          "name": "Lalmonirhat",
+                          "name_bn": "লালমনিরহাট"
+                      },
+                      {
+                          "name": "Nilphamari",
+                          "name_bn": "নীলফামারী"
+                      },
+                      {
+                          "name": "Panchagarh",
+                          "name_bn": "পঞ্চগড়"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "name": "Sonali Bank",
+          "name_bn": "সোনালী ব্যাংক",
+          "districts": [
+              {
+                  "name": "Dhaka",
+                  "name_bn": "ঢাকা",
+                  "branches": [
+                      {
+                          "name": "Banani",
+                          "name_bn": "বনানী"
+                      },
+                      {
+                          "name": "Mohakhali",
+                          "name_bn": "মহাখালী"
+                      },
+                      {
+                          "name": "Badda",
+                          "name_bn": "বাড্ডা"
+                      },
+                      {
+                          "name": "Motijheel",
+                          "name_bn": "মতিঝিল"
+                      },
+                      {
+                          "name": "Mohammadpur",
+                          "name_bn": "মোহাম্মদপুর"
+                      },
+                      {
+                          "name": "Gulshan",
+                          "name_bn": "গুলশান"
+                      },
+                      {
+                          "name": "Farmgate",
+                          "name_bn": "ফার্মগেট"
+                      },
+                      {
+                          "name": "Gulshan Avenue",
+                          "name_bn": "গুলশান এভিনিউ"
+                      },
+                      {
+                          "name": "Malibagh",
+                          "name_bn": "মালিবাগ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Chittagong",
+                  "name_bn": "চট্টগ্রাম",
+                  "branches": [
+                      {
+                          "name": "Cumilla",
+                          "name_bn": "কুমিল্লা"
+                      },
+                      {
+                          "name": "Chittagong",
+                          "name_bn": "চট্টগ্রাম"
+                      },
+                      {
+                          "name": "Agrabad",
+                          "name_bn": "আগ্রাবাদ"
+                      },
+                      {
+                          "name": "Halishahar",
+                          "name_bn": "হালিশহর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Khulna",
+                  "name_bn": "খুলনা",
+                  "branches": [
+                      {
+                          "name": "Khulna",
+                          "name_bn": "খুলনা"
+                      },
+                      {
+                          "name": "Shatkhira",
+                          "name_bn": "সাতক্ষীরা"
+                      },
+                      {
+                          "name": "Bagherhaat",
+                          "name_bn": "বাগেরহাট"
+                      },
+                      {
+                          "name": "Jessore",
+                          "name_bn": "যশোর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Barishal",
+                  "name_bn": "বরিশাল",
+                  "branches": [
+                      {
+                          "name": "Barishal",
+                          "name_bn": "বরিশাল"
+                      },
+                      {
+                          "name": "Bhola",
+                          "name_bn": "ভোলা"
+                      },
+                      {
+                          "name": "Jhalokati",
+                          "name_bn": "ঝালকাঠি"
+                      },
+                      {
+                          "name": "Patuakhali",
+                          "name_bn": "পটুয়াখালী"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rajshahi",
+                  "name_bn": "রাজশাহী",
+                  "branches": [
+                      {
+                          "name": "Rajshahi",
+                          "name_bn": "রাজশাহী"
+                      },
+                      {
+                          "name": "Sirajgonj",
+                          "name_bn": "সিরাজগঞ্জ"
+                      },
+                      {
+                          "name": "Pabna",
+                          "name_bn": "পাবনা"
+                      },
+                      {
+                          "name": "Nawabganj",
+                          "name_bn": "নবাবগঞ্জ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rangpur",
+                  "name_bn": "রংপুর",
+                  "branches": [
+                      {
+                          "name": "Dinajpur",
+                          "name_bn": "দিনাজপুর"
+                      },
+                      {
+                          "name": "Gaibandha",
+                          "name_bn": "গাইবান্ধা"
+                      },
+                      {
+                          "name": "Kurigram",
+                          "name_bn": "কুড়িগ্রাম"
+                      },
+                      {
+                          "name": "Lalmonirhat",
+                          "name_bn": "লালমনিরহাট"
+                      },
+                      {
+                          "name": "Nilphamari",
+                          "name_bn": "নীলফামারী"
+                      },
+                      {
+                          "name": "Panchagarh",
+                          "name_bn": "পঞ্চগড়"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "name": "Pubali Bank",
+          "name_bn": "পূবালী ব্যাংক",
+          "districts": [
+              {
+                  "name": "Dhaka",
+                  "name_bn": "ঢাকা",
+                  "branches": [
+                      {
+                          "name": "Banani",
+                          "name_bn": "বনানী"
+                      },
+                      {
+                          "name": "Mohakhali",
+                          "name_bn": "মহাখালী"
+                      },
+                      {
+                          "name": "Badda",
+                          "name_bn": "বাড্ডা"
+                      },
+                      {
+                          "name": "Motijheel",
+                          "name_bn": "মতিঝিল"
+                      },
+                      {
+                          "name": "Mohammadpur",
+                          "name_bn": "মোহাম্মদপুর"
+                      },
+                      {
+                          "name": "Gulshan",
+                          "name_bn": "গুলশান"
+                      },
+                      {
+                          "name": "Farmgate",
+                          "name_bn": "ফার্মগেট"
+                      },
+                      {
+                          "name": "Gulshan Avenue",
+                          "name_bn": "গুলশান এভিনিউ"
+                      },
+                      {
+                          "name": "Malibagh",
+                          "name_bn": "মালিবাগ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Chittagong",
+                  "name_bn": "চট্টগ্রাম",
+                  "branches": [
+                      {
+                          "name": "Cumilla",
+                          "name_bn": "কুমিল্লা"
+                      },
+                      {
+                          "name": "Chittagong",
+                          "name_bn": "চট্টগ্রাম"
+                      },
+                      {
+                          "name": "Agrabad",
+                          "name_bn": "আগ্রাবাদ"
+                      },
+                      {
+                          "name": "Halishahar",
+                          "name_bn": "হালিশহর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Khulna",
+                  "name_bn": "খুলনা",
+                  "branches": [
+                      {
+                          "name": "Khulna",
+                          "name_bn": "খুলনা"
+                      },
+                      {
+                          "name": "Shatkhira",
+                          "name_bn": "সাতক্ষীরা"
+                      },
+                      {
+                          "name": "Bagherhaat",
+                          "name_bn": "বাগেরহাট"
+                      },
+                      {
+                          "name": "Jessore",
+                          "name_bn": "যশোর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Barishal",
+                  "name_bn": "বরিশাল",
+                  "branches": [
+                      {
+                          "name": "Barishal",
+                          "name_bn": "বরিশাল"
+                      },
+                      {
+                          "name": "Bhola",
+                          "name_bn": "ভোলা"
+                      },
+                      {
+                          "name": "Jhalokati",
+                          "name_bn": "ঝালকাঠি"
+                      },
+                      {
+                          "name": "Patuakhali",
+                          "name_bn": "পটুয়াখালী"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rajshahi",
+                  "name_bn": "রাজশাহী",
+                  "branches": [
+                      {
+                          "name": "Rajshahi",
+                          "name_bn": "রাজশাহী"
+                      },
+                      {
+                          "name": "Sirajgonj",
+                          "name_bn": "সিরাজগঞ্জ"
+                      },
+                      {
+                          "name": "Pabna",
+                          "name_bn": "পাবনা"
+                      },
+                      {
+                          "name": "Nawabganj",
+                          "name_bn": "নবাবগঞ্জ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rangpur",
+                  "name_bn": "রংপুর",
+                  "branches": [
+                      {
+                          "name": "Dinajpur",
+                          "name_bn": "দিনাজপুর"
+                      },
+                      {
+                          "name": "Gaibandha",
+                          "name_bn": "গাইবান্ধা"
+                      },
+                      {
+                          "name": "Kurigram",
+                          "name_bn": "কুড়িগ্রাম"
+                      },
+                      {
+                          "name": "Lalmonirhat",
+                          "name_bn": "লালমনিরহাট"
+                      },
+                      {
+                          "name": "Nilphamari",
+                          "name_bn": "নীলফামারী"
+                      },
+                      {
+                          "name": "Panchagarh",
+                          "name_bn": "পঞ্চগড়"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "name": "Janata Bank",
+          "name_bn": "জনতা ব্যাংক",
+          "districts": [
+              {
+                  "name": "Dhaka",
+                  "name_bn": "ঢাকা",
+                  "branches": [
+                      {
+                          "name": "Banani",
+                          "name_bn": "বনানী"
+                      },
+                      {
+                          "name": "Mohakhali",
+                          "name_bn": "মহাখালী"
+                      },
+                      {
+                          "name": "Badda",
+                          "name_bn": "বাড্ডা"
+                      },
+                      {
+                          "name": "Motijheel",
+                          "name_bn": "মতিঝিল"
+                      },
+                      {
+                          "name": "Mohammadpur",
+                          "name_bn": "মোহাম্মদপুর"
+                      },
+                      {
+                          "name": "Gulshan",
+                          "name_bn": "গুলশান"
+                      },
+                      {
+                          "name": "Farmgate",
+                          "name_bn": "ফার্মগেট"
+                      },
+                      {
+                          "name": "Gulshan Avenue",
+                          "name_bn": "গুলশান এভিনিউ"
+                      },
+                      {
+                          "name": "Malibagh",
+                          "name_bn": "মালিবাগ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Chittagong",
+                  "name_bn": "চট্টগ্রাম",
+                  "branches": [
+                      {
+                          "name": "Cumilla",
+                          "name_bn": "কুমিল্লা"
+                      },
+                      {
+                          "name": "Chittagong",
+                          "name_bn": "চট্টগ্রাম"
+                      },
+                      {
+                          "name": "Agrabad",
+                          "name_bn": "আগ্রাবাদ"
+                      },
+                      {
+                          "name": "Halishahar",
+                          "name_bn": "হালিশহর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Khulna",
+                  "name_bn": "খুলনা",
+                  "branches": [
+                      {
+                          "name": "Khulna",
+                          "name_bn": "খুলনা"
+                      },
+                      {
+                          "name": "Shatkhira",
+                          "name_bn": "সাতক্ষীরা"
+                      },
+                      {
+                          "name": "Bagherhaat",
+                          "name_bn": "বাগেরহাট"
+                      },
+                      {
+                          "name": "Jessore",
+                          "name_bn": "যশোর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Barishal",
+                  "name_bn": "বরিশাল",
+                  "branches": [
+                      {
+                          "name": "Barishal",
+                          "name_bn": "বরিশাল"
+                      },
+                      {
+                          "name": "Bhola",
+                          "name_bn": "ভোলা"
+                      },
+                      {
+                          "name": "Jhalokati",
+                          "name_bn": "ঝালকাঠি"
+                      },
+                      {
+                          "name": "Patuakhali",
+                          "name_bn": "পটুয়াখালী"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rajshahi",
+                  "name_bn": "রাজশাহী",
+                  "branches": [
+                      {
+                          "name": "Rajshahi",
+                          "name_bn": "রাজশাহী"
+                      },
+                      {
+                          "name": "Sirajgonj",
+                          "name_bn": "সিরাজগঞ্জ"
+                      },
+                      {
+                          "name": "Pabna",
+                          "name_bn": "পাবনা"
+                      },
+                      {
+                          "name": "Nawabganj",
+                          "name_bn": "নবাবগঞ্জ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rangpur",
+                  "name_bn": "রংপুর",
+                  "branches": [
+                      {
+                          "name": "Dinajpur",
+                          "name_bn": "দিনাজপুর"
+                      },
+                      {
+                          "name": "Gaibandha",
+                          "name_bn": "গাইবান্ধা"
+                      },
+                      {
+                          "name": "Kurigram",
+                          "name_bn": "কুড়িগ্রাম"
+                      },
+                      {
+                          "name": "Lalmonirhat",
+                          "name_bn": "লালমনিরহাট"
+                      },
+                      {
+                          "name": "Nilphamari",
+                          "name_bn": "নীলফামারী"
+                      },
+                      {
+                          "name": "Panchagarh",
+                          "name_bn": "পঞ্চগড়"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "name": "Rupali Bank",
+          "name_bn": "রূপালী ব্যাংক",
+          "districts": [
+              {
+                  "name": "Dhaka",
+                  "name_bn": "ঢাকা",
+                  "branches": [
+                      {
+                          "name": "Banani",
+                          "name_bn": "বনানী"
+                      },
+                      {
+                          "name": "Mohakhali",
+                          "name_bn": "মহাখালী"
+                      },
+                      {
+                          "name": "Badda",
+                          "name_bn": "বাড্ডা"
+                      },
+                      {
+                          "name": "Motijheel",
+                          "name_bn": "মতিঝিল"
+                      },
+                      {
+                          "name": "Mohammadpur",
+                          "name_bn": "মোহাম্মদপুর"
+                      },
+                      {
+                          "name": "Gulshan",
+                          "name_bn": "গুলশান"
+                      },
+                      {
+                          "name": "Farmgate",
+                          "name_bn": "ফার্মগেট"
+                      },
+                      {
+                          "name": "Gulshan Avenue",
+                          "name_bn": "গুলশান এভিনিউ"
+                      },
+                      {
+                          "name": "Malibagh",
+                          "name_bn": "মালিবাগ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Chittagong",
+                  "name_bn": "চট্টগ্রাম",
+                  "branches": [
+                      {
+                          "name": "Cumilla",
+                          "name_bn": "কুমিল্লা"
+                      },
+                      {
+                          "name": "Chittagong",
+                          "name_bn": "চট্টগ্রাম"
+                      },
+                      {
+                          "name": "Agrabad",
+                          "name_bn": "আগ্রাবাদ"
+                      },
+                      {
+                          "name": "Halishahar",
+                          "name_bn": "হালিশহর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Khulna",
+                  "name_bn": "খুলনা",
+                  "branches": [
+                      {
+                          "name": "Khulna",
+                          "name_bn": "খুলনা"
+                      },
+                      {
+                          "name": "Shatkhira",
+                          "name_bn": "সাতক্ষীরা"
+                      },
+                      {
+                          "name": "Bagherhaat",
+                          "name_bn": "বাগেরহাট"
+                      },
+                      {
+                          "name": "Jessore",
+                          "name_bn": "যশোর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Barishal",
+                  "name_bn": "বরিশাল",
+                  "branches": [
+                      {
+                          "name": "Barishal",
+                          "name_bn": "বরিশাল"
+                      },
+                      {
+                          "name": "Bhola",
+                          "name_bn": "ভোলা"
+                      },
+                      {
+                          "name": "Jhalokati",
+                          "name_bn": "ঝালকাঠি"
+                      },
+                      {
+                          "name": "Patuakhali",
+                          "name_bn": "পটুয়াখালী"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rajshahi",
+                  "name_bn": "রাজশাহী",
+                  "branches": [
+                      {
+                          "name": "Rajshahi",
+                          "name_bn": "রাজশাহী"
+                      },
+                      {
+                          "name": "Sirajgonj",
+                          "name_bn": "সিরাজগঞ্জ"
+                      },
+                      {
+                          "name": "Pabna",
+                          "name_bn": "পাবনা"
+                      },
+                      {
+                          "name": "Nawabganj",
+                          "name_bn": "নবাবগঞ্জ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rangpur",
+                  "name_bn": "রংপুর",
+                  "branches": [
+                      {
+                          "name": "Dinajpur",
+                          "name_bn": "দিনাজপুর"
+                      },
+                      {
+                          "name": "Gaibandha",
+                          "name_bn": "গাইবান্ধা"
+                      },
+                      {
+                          "name": "Kurigram",
+                          "name_bn": "কুড়িগ্রাম"
+                      },
+                      {
+                          "name": "Lalmonirhat",
+                          "name_bn": "লালমনিরহাট"
+                      },
+                      {
+                          "name": "Nilphamari",
+                          "name_bn": "নীলফামারী"
+                      },
+                      {
+                          "name": "Panchagarh",
+                          "name_bn": "পঞ্চগড়"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "name": "Hawa Bank",
+          "name_bn": "হাওয়া ব্যাংক",
+          "districts": [
+              {
+                  "name": "Dhaka",
+                  "name_bn": "ঢাকা",
+                  "branches": [
+                      {
+                          "name": "Banani",
+                          "name_bn": "বনানী"
+                      },
+                      {
+                          "name": "Mohakhali",
+                          "name_bn": "মহাখালী"
+                      },
+                      {
+                          "name": "Badda",
+                          "name_bn": "বাড্ডা"
+                      },
+                      {
+                          "name": "Motijheel",
+                          "name_bn": "মতিঝিল"
+                      },
+                      {
+                          "name": "Mohammadpur",
+                          "name_bn": "মোহাম্মদপুর"
+                      },
+                      {
+                          "name": "Gulshan",
+                          "name_bn": "গুলশান"
+                      },
+                      {
+                          "name": "Farmgate",
+                          "name_bn": "ফার্মগেট"
+                      },
+                      {
+                          "name": "Gulshan Avenue",
+                          "name_bn": "গুলশান এভিনিউ"
+                      },
+                      {
+                          "name": "Malibagh",
+                          "name_bn": "মালিবাগ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Chittagong",
+                  "name_bn": "চট্টগ্রাম",
+                  "branches": [
+                      {
+                          "name": "Cumilla",
+                          "name_bn": "কুমিল্লা"
+                      },
+                      {
+                          "name": "Chittagong",
+                          "name_bn": "চট্টগ্রাম"
+                      },
+                      {
+                          "name": "Agrabad",
+                          "name_bn": "আগ্রাবাদ"
+                      },
+                      {
+                          "name": "Halishahar",
+                          "name_bn": "হালিশহর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Khulna",
+                  "name_bn": "খুলনা",
+                  "branches": [
+                      {
+                          "name": "Khulna",
+                          "name_bn": "খুলনা"
+                      },
+                      {
+                          "name": "Shatkhira",
+                          "name_bn": "সাতক্ষীরা"
+                      },
+                      {
+                          "name": "Bagherhaat",
+                          "name_bn": "বাগেরহাট"
+                      },
+                      {
+                          "name": "Jessore",
+                          "name_bn": "যশোর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Barishal",
+                  "name_bn": "বরিশাল",
+                  "branches": [
+                      {
+                          "name": "Barishal",
+                          "name_bn": "বরিশাল"
+                      },
+                      {
+                          "name": "Bhola",
+                          "name_bn": "ভোলা"
+                      },
+                      {
+                          "name": "Jhalokati",
+                          "name_bn": "ঝালকাঠি"
+                      },
+                      {
+                          "name": "Patuakhali",
+                          "name_bn": "পটুয়াখালী"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rajshahi",
+                  "name_bn": "রাজশাহী",
+                  "branches": [
+                      {
+                          "name": "Rajshahi",
+                          "name_bn": "রাজশাহী"
+                      },
+                      {
+                          "name": "Sirajgonj",
+                          "name_bn": "সিরাজগঞ্জ"
+                      },
+                      {
+                          "name": "Pabna",
+                          "name_bn": "পাবনা"
+                      },
+                      {
+                          "name": "Nawabganj",
+                          "name_bn": "নবাবগঞ্জ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rangpur",
+                  "name_bn": "রংপুর",
+                  "branches": [
+                      {
+                          "name": "Dinajpur",
+                          "name_bn": "দিনাজপুর"
+                      },
+                      {
+                          "name": "Gaibandha",
+                          "name_bn": "গাইবান্ধা"
+                      },
+                      {
+                          "name": "Kurigram",
+                          "name_bn": "কুড়িগ্রাম"
+                      },
+                      {
+                          "name": "Lalmonirhat",
+                          "name_bn": "লালমনিরহাট"
+                      },
+                      {
+                          "name": "Nilphamari",
+                          "name_bn": "নীলফামারী"
+                      },
+                      {
+                          "name": "Panchagarh",
+                          "name_bn": "পঞ্চগড়"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "name": "Krishi Bank",
+          "name_bn": "কৃষি ব্যাংক",
+          "districts": [
+              {
+                  "name": "Dhaka",
+                  "name_bn": "ঢাকা",
+                  "branches": [
+                      {
+                          "name": "Banani",
+                          "name_bn": "বনানী"
+                      },
+                      {
+                          "name": "Mohakhali",
+                          "name_bn": "মহাখালী"
+                      },
+                      {
+                          "name": "Badda",
+                          "name_bn": "বাড্ডা"
+                      },
+                      {
+                          "name": "Motijheel",
+                          "name_bn": "মতিঝিল"
+                      },
+                      {
+                          "name": "Mohammadpur",
+                          "name_bn": "মোহাম্মদপুর"
+                      },
+                      {
+                          "name": "Gulshan",
+                          "name_bn": "গুলশান"
+                      },
+                      {
+                          "name": "Farmgate",
+                          "name_bn": "ফার্মগেট"
+                      },
+                      {
+                          "name": "Gulshan Avenue",
+                          "name_bn": "গুলশান এভিনিউ"
+                      },
+                      {
+                          "name": "Malibagh",
+                          "name_bn": "মালিবাগ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Chittagong",
+                  "name_bn": "চট্টগ্রাম",
+                  "branches": [
+                      {
+                          "name": "Cumilla",
+                          "name_bn": "কুমিল্লা"
+                      },
+                      {
+                          "name": "Chittagong",
+                          "name_bn": "চট্টগ্রাম"
+                      },
+                      {
+                          "name": "Agrabad",
+                          "name_bn": "আগ্রাবাদ"
+                      },
+                      {
+                          "name": "Halishahar",
+                          "name_bn": "হালিশহর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Khulna",
+                  "name_bn": "খুলনা",
+                  "branches": [
+                      {
+                          "name": "Khulna",
+                          "name_bn": "খুলনা"
+                      },
+                      {
+                          "name": "Shatkhira",
+                          "name_bn": "সাতক্ষীরা"
+                      },
+                      {
+                          "name": "Bagherhaat",
+                          "name_bn": "বাগেরহাট"
+                      },
+                      {
+                          "name": "Jessore",
+                          "name_bn": "যশোর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Barishal",
+                  "name_bn": "বরিশাল",
+                  "branches": [
+                      {
+                          "name": "Barishal",
+                          "name_bn": "বরিশাল"
+                      },
+                      {
+                          "name": "Bhola",
+                          "name_bn": "ভোলা"
+                      },
+                      {
+                          "name": "Jhalokati",
+                          "name_bn": "ঝালকাঠি"
+                      },
+                      {
+                          "name": "Patuakhali",
+                          "name_bn": "পটুয়াখালী"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rajshahi",
+                  "name_bn": "রাজশাহী",
+                  "branches": [
+                      {
+                          "name": "Rajshahi",
+                          "name_bn": "রাজশাহী"
+                      },
+                      {
+                          "name": "Sirajgonj",
+                          "name_bn": "সিরাজগঞ্জ"
+                      },
+                      {
+                          "name": "Pabna",
+                          "name_bn": "পাবনা"
+                      },
+                      {
+                          "name": "Nawabganj",
+                          "name_bn": "নবাবগঞ্জ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rangpur",
+                  "name_bn": "রংপুর",
+                  "branches": [
+                      {
+                          "name": "Dinajpur",
+                          "name_bn": "দিনাজপুর"
+                      },
+                      {
+                          "name": "Gaibandha",
+                          "name_bn": "গাইবান্ধা"
+                      },
+                      {
+                          "name": "Kurigram",
+                          "name_bn": "কুড়িগ্রাম"
+                      },
+                      {
+                          "name": "Lalmonirhat",
+                          "name_bn": "লালমনিরহাট"
+                      },
+                      {
+                          "name": "Nilphamari",
+                          "name_bn": "নীলফামারী"
+                      },
+                      {
+                          "name": "Panchagarh",
+                          "name_bn": "পঞ্চগড়"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "name": "Agrani Bank",
+          "name_bn": "অগ্রণী ব্যাংক",
+          "districts": [
+              {
+                  "name": "Dhaka",
+                  "name_bn": "ঢাকা",
+                  "branches": [
+                      {
+                          "name": "Banani",
+                          "name_bn": "বনানী"
+                      },
+                      {
+                          "name": "Mohakhali",
+                          "name_bn": "মহাখালী"
+                      },
+                      {
+                          "name": "Badda",
+                          "name_bn": "বাড্ডা"
+                      },
+                      {
+                          "name": "Motijheel",
+                          "name_bn": "মতিঝিল"
+                      },
+                      {
+                          "name": "Mohammadpur",
+                          "name_bn": "মোহাম্মদপুর"
+                      },
+                      {
+                          "name": "Gulshan",
+                          "name_bn": "গুলশান"
+                      },
+                      {
+                          "name": "Farmgate",
+                          "name_bn": "ফার্মগেট"
+                      },
+                      {
+                          "name": "Gulshan Avenue",
+                          "name_bn": "গুলশান এভিনিউ"
+                      },
+                      {
+                          "name": "Malibagh",
+                          "name_bn": "মালিবাগ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Chittagong",
+                  "name_bn": "চট্টগ্রাম",
+                  "branches": [
+                      {
+                          "name": "Cumilla",
+                          "name_bn": "কুমিল্লা"
+                      },
+                      {
+                          "name": "Chittagong",
+                          "name_bn": "চট্টগ্রাম"
+                      },
+                      {
+                          "name": "Agrabad",
+                          "name_bn": "আগ্রাবাদ"
+                      },
+                      {
+                          "name": "Halishahar",
+                          "name_bn": "হালিশহর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Khulna",
+                  "name_bn": "খুলনা",
+                  "branches": [
+                      {
+                          "name": "Khulna",
+                          "name_bn": "খুলনা"
+                      },
+                      {
+                          "name": "Shatkhira",
+                          "name_bn": "সাতক্ষীরা"
+                      },
+                      {
+                          "name": "Bagherhaat",
+                          "name_bn": "বাগেরহাট"
+                      },
+                      {
+                          "name": "Jessore",
+                          "name_bn": "যশোর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Barishal",
+                  "name_bn": "বরিশাল",
+                  "branches": [
+                      {
+                          "name": "Barishal",
+                          "name_bn": "বরিশাল"
+                      },
+                      {
+                          "name": "Bhola",
+                          "name_bn": "ভোলা"
+                      },
+                      {
+                          "name": "Jhalokati",
+                          "name_bn": "ঝালকাঠি"
+                      },
+                      {
+                          "name": "Patuakhali",
+                          "name_bn": "পটুয়াখালী"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rajshahi",
+                  "name_bn": "রাজশাহী",
+                  "branches": [
+                      {
+                          "name": "Rajshahi",
+                          "name_bn": "রাজশাহী"
+                      },
+                      {
+                          "name": "Sirajgonj",
+                          "name_bn": "সিরাজগঞ্জ"
+                      },
+                      {
+                          "name": "Pabna",
+                          "name_bn": "পাবনা"
+                      },
+                      {
+                          "name": "Nawabganj",
+                          "name_bn": "নবাবগঞ্জ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rangpur",
+                  "name_bn": "রংপুর",
+                  "branches": [
+                      {
+                          "name": "Dinajpur",
+                          "name_bn": "দিনাজপুর"
+                      },
+                      {
+                          "name": "Gaibandha",
+                          "name_bn": "গাইবান্ধা"
+                      },
+                      {
+                          "name": "Kurigram",
+                          "name_bn": "কুড়িগ্রাম"
+                      },
+                      {
+                          "name": "Lalmonirhat",
+                          "name_bn": "লালমনিরহাট"
+                      },
+                      {
+                          "name": "Nilphamari",
+                          "name_bn": "নীলফামারী"
+                      },
+                      {
+                          "name": "Panchagarh",
+                          "name_bn": "পঞ্চগড়"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "name": "Midland Bank",
+          "name_bn": "মিডল্যান্ড ব্যাংক",
+          "districts": [
+              {
+                  "name": "Dhaka",
+                  "name_bn": "ঢাকা",
+                  "branches": [
+                      {
+                          "name": "Banani",
+                          "name_bn": "বনানী"
+                      },
+                      {
+                          "name": "Mohakhali",
+                          "name_bn": "মহাখালী"
+                      },
+                      {
+                          "name": "Badda",
+                          "name_bn": "বাড্ডা"
+                      },
+                      {
+                          "name": "Motijheel",
+                          "name_bn": "মতিঝিল"
+                      },
+                      {
+                          "name": "Mohammadpur",
+                          "name_bn": "মোহাম্মদপুর"
+                      },
+                      {
+                          "name": "Gulshan",
+                          "name_bn": "গুলশান"
+                      },
+                      {
+                          "name": "Farmgate",
+                          "name_bn": "ফার্মগেট"
+                      },
+                      {
+                          "name": "Gulshan Avenue",
+                          "name_bn": "গুলশান এভিনিউ"
+                      },
+                      {
+                          "name": "Malibagh",
+                          "name_bn": "মালিবাগ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Chittagong",
+                  "name_bn": "চট্টগ্রাম",
+                  "branches": [
+                      {
+                          "name": "Cumilla",
+                          "name_bn": "কুমিল্লা"
+                      },
+                      {
+                          "name": "Chittagong",
+                          "name_bn": "চট্টগ্রাম"
+                      },
+                      {
+                          "name": "Agrabad",
+                          "name_bn": "আগ্রাবাদ"
+                      },
+                      {
+                          "name": "Halishahar",
+                          "name_bn": "হালিশহর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Khulna",
+                  "name_bn": "খুলনা",
+                  "branches": [
+                      {
+                          "name": "Khulna",
+                          "name_bn": "খুলনা"
+                      },
+                      {
+                          "name": "Shatkhira",
+                          "name_bn": "সাতক্ষীরা"
+                      },
+                      {
+                          "name": "Bagherhaat",
+                          "name_bn": "বাগেরহাট"
+                      },
+                      {
+                          "name": "Jessore",
+                          "name_bn": "যশোর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Barishal",
+                  "name_bn": "বরিশাল",
+                  "branches": [
+                      {
+                          "name": "Barishal",
+                          "name_bn": "বরিশাল"
+                      },
+                      {
+                          "name": "Bhola",
+                          "name_bn": "ভোলা"
+                      },
+                      {
+                          "name": "Jhalokati",
+                          "name_bn": "ঝালকাঠি"
+                      },
+                      {
+                          "name": "Patuakhali",
+                          "name_bn": "পটুয়াখালী"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rajshahi",
+                  "name_bn": "রাজশাহী",
+                  "branches": [
+                      {
+                          "name": "Rajshahi",
+                          "name_bn": "রাজশাহী"
+                      },
+                      {
+                          "name": "Sirajgonj",
+                          "name_bn": "সিরাজগঞ্জ"
+                      },
+                      {
+                          "name": "Pabna",
+                          "name_bn": "পাবনা"
+                      },
+                      {
+                          "name": "Nawabganj",
+                          "name_bn": "নবাবগঞ্জ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rangpur",
+                  "name_bn": "রংপুর",
+                  "branches": [
+                      {
+                          "name": "Dinajpur",
+                          "name_bn": "দিনাজপুর"
+                      },
+                      {
+                          "name": "Gaibandha",
+                          "name_bn": "গাইবান্ধা"
+                      },
+                      {
+                          "name": "Kurigram",
+                          "name_bn": "কুড়িগ্রাম"
+                      },
+                      {
+                          "name": "Lalmonirhat",
+                          "name_bn": "লালমনিরহাট"
+                      },
+                      {
+                          "name": "Nilphamari",
+                          "name_bn": "নীলফামারী"
+                      },
+                      {
+                          "name": "Panchagarh",
+                          "name_bn": "পঞ্চগড়"
+                      }
+                  ]
+              }
+          ]
+      },
+      {
+          "name": "Farmer's Bank",
+          "name_bn": "ফারমারস ব্যাংক",
+          "districts": [
+              {
+                  "name": "Dhaka",
+                  "name_bn": "ঢাকা",
+                  "branches": [
+                      {
+                          "name": "Banani",
+                          "name_bn": "বনানী"
+                      },
+                      {
+                          "name": "Mohakhali",
+                          "name_bn": "মহাখালী"
+                      },
+                      {
+                          "name": "Badda",
+                          "name_bn": "বাড্ডা"
+                      },
+                      {
+                          "name": "Motijheel",
+                          "name_bn": "মতিঝিল"
+                      },
+                      {
+                          "name": "Mohammadpur",
+                          "name_bn": "মোহাম্মদপুর"
+                      },
+                      {
+                          "name": "Gulshan",
+                          "name_bn": "গুলশান"
+                      },
+                      {
+                          "name": "Farmgate",
+                          "name_bn": "ফার্মগেট"
+                      },
+                      {
+                          "name": "Gulshan Avenue",
+                          "name_bn": "গুলশান এভিনিউ"
+                      },
+                      {
+                          "name": "Malibagh",
+                          "name_bn": "মালিবাগ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Chittagong",
+                  "name_bn": "চট্টগ্রাম",
+                  "branches": [
+                      {
+                          "name": "Cumilla",
+                          "name_bn": "কুমিল্লা"
+                      },
+                      {
+                          "name": "Chittagong",
+                          "name_bn": "চট্টগ্রাম"
+                      },
+                      {
+                          "name": "Agrabad",
+                          "name_bn": "আগ্রাবাদ"
+                      },
+                      {
+                          "name": "Halishahar",
+                          "name_bn": "হালিশহর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Khulna",
+                  "name_bn": "খুলনা",
+                  "branches": [
+                      {
+                          "name": "Khulna",
+                          "name_bn": "খুলনা"
+                      },
+                      {
+                          "name": "Shatkhira",
+                          "name_bn": "সাতক্ষীরা"
+                      },
+                      {
+                          "name": "Bagherhaat",
+                          "name_bn": "বাগেরহাট"
+                      },
+                      {
+                          "name": "Jessore",
+                          "name_bn": "যশোর"
+                      }
+                  ]
+              },
+              {
+                  "name": "Barishal",
+                  "name_bn": "বরিশাল",
+                  "branches": [
+                      {
+                          "name": "Barishal",
+                          "name_bn": "বরিশাল"
+                      },
+                      {
+                          "name": "Bhola",
+                          "name_bn": "ভোলা"
+                      },
+                      {
+                          "name": "Jhalokati",
+                          "name_bn": "ঝালকাঠি"
+                      },
+                      {
+                          "name": "Patuakhali",
+                          "name_bn": "পটুয়াখালী"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rajshahi",
+                  "name_bn": "রাজশাহী",
+                  "branches": [
+                      {
+                          "name": "Rajshahi",
+                          "name_bn": "রাজশাহী"
+                      },
+                      {
+                          "name": "Sirajgonj",
+                          "name_bn": "সিরাজগঞ্জ"
+                      },
+                      {
+                          "name": "Pabna",
+                          "name_bn": "পাবনা"
+                      },
+                      {
+                          "name": "Nawabganj",
+                          "name_bn": "নবাবগঞ্জ"
+                      }
+                  ]
+              },
+              {
+                  "name": "Rangpur",
+                  "name_bn": "রংপুর",
+                  "branches": [
+                      {
+                          "name": "Dinajpur",
+                          "name_bn": "দিনাজপুর"
+                      },
+                      {
+                          "name": "Gaibandha",
+                          "name_bn": "গাইবান্ধা"
+                      },
+                      {
+                          "name": "Kurigram",
+                          "name_bn": "কুড়িগ্রাম"
+                      },
+                      {
+                          "name": "Lalmonirhat",
+                          "name_bn": "লালমনিরহাট"
+                      },
+                      {
+                          "name": "Nilphamari",
+                          "name_bn": "নীলফামারী"
+                      },
+                      {
+                          "name": "Panchagarh",
+                          "name_bn": "পঞ্চগড়"
+                      }
+                  ]
+              }
+          ]
+      }
+  ]
+}

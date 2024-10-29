@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => env('APP_TIMEZONE', default: 'Asia/Dhaka'),
 
     /*
     |--------------------------------------------------------------------------
@@ -133,6 +133,24 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Maintenance Mode Driver
+    |--------------------------------------------------------------------------
+    |
+    | These configuration options determine the driver used to determine and
+    | manage Laravel's "maintenance mode" status. The "cache" driver will
+    | allow maintenance mode to be controlled across multiple machines.
+    |
+    | Supported drivers: "file", "cache"
+    |
+    */
+
+    'maintenance' => [
+        'driver' => 'file',
+        // 'store'  => 'redis',
+    ],
 
     'providers' => [
 
@@ -162,9 +180,15 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-        /*
+                /*
          * Package Service Providers...
          */
+        Konekt\Concord\ConcordServiceProvider::class,
+
+        /*
+         * Polygon packages
+         */
+        Polygon\Logging\Providers\LoggingServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
 
         /*
@@ -174,7 +198,9 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\HorizonServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Repositories\Providers\RepositoryServiceProvider::class,
 
     ],
 

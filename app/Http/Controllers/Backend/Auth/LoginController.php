@@ -45,7 +45,7 @@ class LoginController extends Controller
      * login admin
      *
      * @param Request $request
-     * @return void
+     * @return voidAuth
      */
     public function login(Request $request)
     {
