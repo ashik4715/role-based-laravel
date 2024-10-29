@@ -33,7 +33,7 @@ class ApplicationController extends Controller
         $application = Application::findOrFail($id);
         $data = json_decode($application->application_data, true);
 
-        return view('admin.pages.view-json', compact('data'));
+        return view('backend.pages.dashboard.view-json', compact('data'));
     }
 
     public function destroy($id)
