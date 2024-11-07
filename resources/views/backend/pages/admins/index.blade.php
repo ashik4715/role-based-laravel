@@ -133,9 +133,13 @@
         if ($('#dataTable').length) {
             $('#dataTable').DataTable({
                 responsive: true,
-                dom: 'Bfrtip',
+                dom: '<"top"lB>rt<"bottom"p><"clear">',
                 buttons: [
                     'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                lengthMenu: [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, 'All']
                 ]
             });
         }

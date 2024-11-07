@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\RolesController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\InsuranceConfirmationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('roles', RolesController::class);
     Route::resource('admins', AdminsController::class);
+
+    // insurance_confirmations/import.blade.php
+    Route::get('insurance-confirmations', [InsuranceConfirmationController::class, 'index'])->name('insurance-confirmations.index');
+    Route::get('insurance-confirmations/import', [InsuranceConfirmationController::class, 'importView'])->name('insurance-confirmations.import-view');
+    Route::post('insurance-confirmations/import', [InsuranceConfirmationController::class, 'import'])->name('insurance-confirmations.import');
 
     // Login Routes.
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
