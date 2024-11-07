@@ -10,9 +10,9 @@ Import Insurance Confirmation - WCP
     <div class="row align-items-center">
         <div class="col-sm-6">
             <div class="breadcrumbs-area clearfix">
-                <h4 class="page-title pull-left">Dashboard</h4>
+                <h4 class="page-title pull-left"><a class="btn btn-outline-dark" type="button" href="{{ route(name: 'admin.insurance-confirmations.index') }}">{{ __('Back') }}</a></h4>
                 <ul class="breadcrumbs pull-left">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{ route(name: 'admin.insurance-confirmations.index') }}">{{ __('List Insurance Confirmation') }}</a></li>
                     <li><span>Import Insurance Confirmation</span></li>
                 </ul>
             </div>
@@ -25,7 +25,7 @@ Import Insurance Confirmation - WCP
 
 <div class="main-content-inner">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-12 mt-4">
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif

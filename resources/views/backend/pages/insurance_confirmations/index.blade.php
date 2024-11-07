@@ -25,7 +25,7 @@ List Insurance Confirmation - WCP
             <div class="breadcrumbs-area clearfix">
                 <h4 class="page-title pull-left">Dashboard</h4>
                 <ul class="breadcrumbs pull-left">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{ route(name: 'admin.dashboard') }}">{{ __('Dashboard') }}</a></li>
                     <li><span>Insurance Confirmation</span></li>
                 </ul>
             </div>
@@ -33,21 +33,27 @@ List Insurance Confirmation - WCP
         <div class="col-sm-6 clearfix">
             @include('backend.layouts.partials.logout')
         </div>
-        <div class="col-sm-6 clearfix">
-            <a href="{{ route('admin.insurance-confirmations.import-view') }}" class="btn btn-primary float-right">Import XLSX</a>
-        </div>
     </div>
 </div>
 
 <div class="main-content-inner">
   <div class="row">
-    <div class="col-lg-12 mt-5 mb-3">
+    <div class="col-lg-12 mt-4">
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
         <div class="card">
             <div class="card-body">
+                <h4 class="header-title float-left">{{ __('Admins') }}</h4>
+                <p class="float-right mb-2">
+                    @if (auth()->user()->can('admin.edit'))
+                    <a class="btn btn-primary text-white" href="{{ route('admin.insurance-confirmations.import-view') }}">
+                        {{ __('Import XLSX') }}
+                    </a>
+                    @endif
+                </p>
                 <h4 class="header-title">Insurance Confirmation List</h4>
+                
                 <div class="table-responsive">
                     <table id="dataTable" class="text-center">
                         <thead class="bg-light text-capitalize">
