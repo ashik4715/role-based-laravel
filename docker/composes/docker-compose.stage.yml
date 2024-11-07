@@ -1,6 +1,6 @@
 version: '3.9'
 services:
-  partner-service:
+  wegro-control-service:
     build:
       context: ../
       dockerfile: Dockerfile
@@ -20,6 +20,6 @@ services:
       - ${PORT}:80
 
 networks:
-  partner-service-network:
+  wegro-control-service-network:
     external:
       name: ${EXTERNAL_NETWORK}

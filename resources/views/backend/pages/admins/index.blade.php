@@ -1,15 +1,20 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    {{ __('Admins - Admin Panel') }}
+{{ __('Admins - Admin Panel') }}
 @endsection
 
 @section('styles')
-    <!-- Start datatable css -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css">
+<!-- Start datatable css -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css"
+    href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+    href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css">
+
+<!-- DataTables Buttons CSS for Export -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
 @endsection
 
 @section('admin-content')
@@ -42,9 +47,9 @@
                     <h4 class="header-title float-left">{{ __('Admins') }}</h4>
                     <p class="float-right mb-2">
                         @if (auth()->user()->can('admin.edit'))
-                            <a class="btn btn-primary text-white" href="{{ route('admin.admins.create') }}">
-                                {{ __('Create New Admin') }}
-                            </a>
+                        <a class="btn btn-primary text-white" href="{{ route('admin.admins.create') }}">
+                            {{ __('Create New Admin') }}
+                        </a>
                         @endif
                     </p>
                     <div class="clearfix"></div>
@@ -61,37 +66,40 @@
                                 </tr>
                             </thead>
                             <tbody>
-                               @foreach ($admins as $admin)
-                               <tr>
+                                @foreach ($admins as $admin)
+                                <tr>
                                     <td>{{ $loop->index+1 }}</td>
                                     <td>{{ $admin->name }}</td>
                                     <td>{{ $admin->email }}</td>
                                     <td>
                                         @foreach ($admin->roles as $role)
-                                            <span class="badge badge-info mr-1">
-                                                {{ $role->name }}
-                                            </span>
+                                        <span class="badge badge-info mr-1">
+                                            {{ $role->name }}
+                                        </span>
                                         @endforeach
                                     </td>
                                     <td>
                                         @if (auth()->user()->can('admin.edit'))
-                                            <a class="btn btn-success text-white" href="{{ route('admin.admins.edit', $admin->id) }}">Edit</a>
+                                        <a class="btn btn-success text-white"
+                                            href="{{ route('admin.admins.edit', $admin->id) }}">Edit</a>
                                         @endif
-                                        
+
                                         @if (auth()->user()->can('admin.delete'))
                                         <a class="btn btn-danger text-white" href="javascript:void(0);"
-                                        onclick="event.preventDefault(); if(confirm('Are you sure you want to delete?')) { document.getElementById('delete-form-{{ $admin->id }}').submit(); }">
+                                            onclick="event.preventDefault(); if(confirm('Are you sure you want to delete?')) { document.getElementById('delete-form-{{ $admin->id }}').submit(); }">
                                             {{ __('Delete') }}
                                         </a>
 
-                                        <form id="delete-form-{{ $admin->id }}" action="{{ route('admin.admins.destroy', $admin->id) }}" method="POST" style="display: none;">
+                                        <form id="delete-form-{{ $admin->id }}"
+                                            action="{{ route('admin.admins.destroy', $admin->id) }}" method="POST"
+                                            style="display: none;">
                                             @method('DELETE')
                                             @csrf
                                         </form>
                                         @endif
                                     </td>
                                 </tr>
-                               @endforeach
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -104,18 +112,34 @@
 @endsection
 
 @section('scripts')
-     <!-- Start datatable js -->
-     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-     <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
-     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
-     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-     <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
-     
-     <script>
+<!-- Start datatable js -->
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
+
+<!-- DataTables Buttons JS for Export -->
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
         if ($('#dataTable').length) {
             $('#dataTable').DataTable({
-                responsive: true
+                responsive: true,
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
             });
         }
-     </script>
+    });
+
+</script>
 @endsection

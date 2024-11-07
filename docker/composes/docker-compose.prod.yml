@@ -1,6 +1,6 @@
 version: '3.9'
 services:
-  wegro-farmer-new-service:
+  wegro-control-service:
     image: wegro-agent-new-service:latest
     environment:
       SERVICE_NAME: app
@@ -20,5 +20,5 @@ services:
       - wegro-service-network
 
 networks:
-  wegro-service-network:
+  wegro_development_network:
     name: ${EXTERNAL_NETWORK}

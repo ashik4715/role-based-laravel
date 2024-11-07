@@ -1,6 +1,6 @@
 version: '3.9'
 services:
-  wegro-farmer-new-service:
+  wegro-control-service:
     build:
       context: ../
       dockerfile: Dockerfile
