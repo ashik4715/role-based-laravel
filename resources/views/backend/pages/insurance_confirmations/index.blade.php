@@ -4,6 +4,10 @@
 List Insurance Confirmation - WCP
 @endsection
 
+@php
+    $usr = Auth::guard('admin')->user();
+@endphp
+
 @section('styles')
 <!-- Start datatable css -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
@@ -46,7 +50,7 @@ List Insurance Confirmation - WCP
             <div class="card-body">
                 <h4 class="header-title float-left">{{ __('Admins') }}</h4>
                 <p class="float-right mb-2">
-                    @if (auth()->user()->can('admin.edit'))
+                    @if ($usr->can('insurance-confirmations.import-view'))
                     <a class="btn btn-primary text-white" href="{{ route('admin.insurance-confirmations.import-view') }}">
                         {{ __('Import XLSX') }}
                     </a>

@@ -10,9 +10,9 @@ Import Insurance Confirmation - WCP
     <div class="row align-items-center">
         <div class="col-sm-6">
             <div class="breadcrumbs-area clearfix">
-                <h4 class="page-title pull-left"><a class="btn btn-outline-dark" type="button" href="{{ route(name: 'admin.insurance-confirmations.index') }}">{{ __('Back') }}</a></h4>
+                <h4 class="page-title pull-left"><a class="btn btn-outline-dark" type="button" href="{{ route(name: 'admin.insurance-confirmations.view') }}">{{ __('Back') }}</a></h4>
                 <ul class="breadcrumbs pull-left">
-                    <li><a href="{{ route(name: 'admin.insurance-confirmations.index') }}">{{ __('List Insurance Confirmation') }}</a></li>
+                    <li><a href="{{ route(name: 'admin.insurance-confirmations.view') }}">{{ __('List Insurance Confirmation') }}</a></li>
                     <li><span>Import Insurance Confirmation</span></li>
                 </ul>
             </div>

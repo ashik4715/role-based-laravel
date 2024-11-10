@@ -40,7 +40,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('admins', AdminsController::class);
 
     // insurance_confirmations/import.blade.php
-    Route::get('insurance-confirmations', [InsuranceConfirmationController::class, 'index'])->name('insurance-confirmations.index');
+    Route::get('insurance-confirmations', [InsuranceConfirmationController::class, 'index'])->name('insurance-confirmations.view');
     Route::get('insurance-confirmations/import', [InsuranceConfirmationController::class, 'importView'])->name('insurance-confirmations.import-view');
     Route::post('insurance-confirmations/import', [InsuranceConfirmationController::class, 'import'])->name('insurance-confirmations.import');
 

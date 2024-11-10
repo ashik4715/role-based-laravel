@@ -88,6 +88,14 @@ class RolePermissionSeeder extends Seeder
                     'profile.update',
                 ]
             ],
+            [
+                'group_name' => 'insurance',
+                'permissions' => [
+                    // insurance Permissions
+                    'insurance-confirmations.view',
+                    'insurance-confirmations.import-view',
+                ]
+            ],
         ];
 
 

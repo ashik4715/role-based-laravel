@@ -28,6 +28,6 @@ class InsuranceConfirmationController extends Controller
 
         Excel::import(new InsuranceConfirmationImport, $request->file('file'));
 
-        return redirect()->route('admin.insurance-confirmations.index')->with('success', 'Insurance confirmations imported successfully!');
+        return redirect()->route('admin.insurance-confirmations.view')->with('success', 'Insurance confirmations imported successfully!');
     }
 }
