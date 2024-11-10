@@ -15,9 +15,20 @@ return new class extends Migration
     {
         Schema::create('insurance_confirmations', function (Blueprint $table) {
             $table->id();
+            $table->string('fid');
+            $table->string('farmer_name');
             $table->string('nid');
-            $table->string('acceptance');
+            $table->string('phone');
+            $table->string('thana');
+            $table->string('area');
+            $table->string('region');
             $table->string('project_name');
+            $table->string('fo_id');
+            $table->string('fo_name');
+            $table->string('area_manager');
+            $table->string('regional_manager');
+            $table->string('approved_amount'); 
+            $table->string('acceptance')->nullable();
             $table->timestamps();
         });
     }

@@ -17,9 +17,20 @@ class InsuranceConfirmation extends Model
      * @var array
      */
     protected $fillable = [
+        'fid',
+        'farmer_name',
         'nid',
-        'acceptance',
+        'phone',
+        'thana',
+        'area',
+        'region',
         'project_name',
+        'fo_id',
+        'fo_name',
+        'area_manager',
+        'regional_manager',
+        'approved_amount',
+        'acceptance',
     ];
 
 }

@@ -46,6 +46,9 @@ List Insurance Confirmation - WCP
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
+        @if(session('error'))
+            <div class="alert alert-danger">{{ session('error') }}</div>
+        @endif
         <div class="card">
             <div class="card-body">
                 <h4 class="header-title float-left">{{ __('Admins') }}</h4>
@@ -62,17 +65,47 @@ List Insurance Confirmation - WCP
                     <table id="dataTable" class="text-center">
                         <thead class="bg-light text-capitalize">
                             <tr>
+                                <th>{{ __('FID')}}</th>
+                                <th>{{ __('Farmer Name')}}</th>
                                 <th>{{ __('NID')}}</th>
-                                <th>{{ __('Acceptance')}}</th>
+                                <th>{{ __('Phone')}}</th>
+                                <th>{{ __('Thana')}}</th>
+                                <th>{{ __('Area')}}</th>
+                                <th>{{ __('Region')}}</th>
                                 <th>{{ __('Project Name')}}</th>
+                                <th>{{ __('FO ID')}}</th>
+                                <th>{{ __('FO Name')}}</th>
+                                <th>{{ __('Area Manager')}}</th>
+                                <th>{{ __('Approved Amount')}}</th>
+                                <th>{{ __('Acceptance')}}</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($insuranceConfirmations as $confirmation)
                                 <tr>
+                                    <td>{{ $confirmation->fid }}</td>
+                                    <td>{{ $confirmation->farmer_name }}</td>
                                     <td>{{ $confirmation->nid }}</td>
-                                    <td>{{ $confirmation->acceptance }}</td>
+                                    <td>{{ $confirmation->phone }}</td>
+                                    <td>{{ $confirmation->thana }}</td>
+                                    <td>{{ $confirmation->area }}</td>
+                                    <td>{{ $confirmation->region }}</td>
                                     <td>{{ $confirmation->project_name }}</td>
+                                    <td>{{ $confirmation->fo_id }}</td>
+                                    <td>{{ $confirmation->fo_name }}</td>
+                                    <td>{{ $confirmation->area_manager }}</td>
+                                    <td>{{ $confirmation->approved_amount }}</td>
+                                    <td>
+                                        <form action="{{ route('admin.insurance-confirmations.updateAcceptance', $confirmation->id) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <select name="acceptance" onchange="this.form.submit()" class="custom-select">
+                                                <option value="" {{ is_null($confirmation->acceptance) ? 'selected' : '' }}>Select</option>
+                                                <option value="yes" {{ $confirmation->acceptance === 'yes' ? 'selected' : '' }}>Yes</option>
+                                                <option value="no" {{ $confirmation->acceptance === 'no' ? 'selected' : '' }}>No</option>
+                                            </select>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

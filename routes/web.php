@@ -43,6 +43,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('insurance-confirmations', [InsuranceConfirmationController::class, 'index'])->name('insurance-confirmations.view');
     Route::get('insurance-confirmations/import', [InsuranceConfirmationController::class, 'importView'])->name('insurance-confirmations.import-view');
     Route::post('insurance-confirmations/import', [InsuranceConfirmationController::class, 'import'])->name('insurance-confirmations.import');
+    Route::get('/insurance-confirmations/fetch', [InsuranceConfirmationController::class, 'fetchAndStoreData']);
+    Route::put('/insurance-confirmations/{id}/acceptance', [InsuranceConfirmationController::class, 'updateAcceptance'])->name('insurance-confirmations.updateAcceptance');
 
     // Login Routes.
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
