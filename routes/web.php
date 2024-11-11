@@ -46,11 +46,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/insurance-confirmations/fetch', [InsuranceConfirmationController::class, 'fetchAndStoreData']);
     Route::put('/insurance-confirmations/{id}/acceptance', [InsuranceConfirmationController::class, 'updateAcceptance'])->name('insurance-confirmations.updateAcceptance');
 
+    Route::post('/admin/insurance-confirmations/bulk-update', [InsuranceConfirmationController::class, 'bulkUpdateAcceptance'])
+    ->name('insurance-confirmations.bulk-update');
+    Route::post('insurance-confirmations/{id}/update-note', [InsuranceConfirmationController::class, 'updateNote'])->name('insurance-confirmations.updateNote');
+
     // Login Routes.
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('/login/submit', [LoginController::class, 'login'])->name('login.submit');
-    Route::post('/admin/insurance-confirmations/bulk-update', [InsuranceConfirmationController::class, 'bulkUpdateAcceptance'])
-    ->name('insurance-confirmations.bulk-update');
 
     // Logout Routes.
     Route::post('/logout/submit', [LoginController::class, 'logout'])->name('logout.submit');

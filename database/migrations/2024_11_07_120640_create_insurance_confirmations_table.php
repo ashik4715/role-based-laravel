@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('regional_manager');
             $table->string('approved_amount'); 
             $table->string('acceptance')->nullable();
+            $table->string('note')->nullable();
             $table->timestamps();
         });
     }

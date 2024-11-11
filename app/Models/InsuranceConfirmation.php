@@ -31,6 +31,7 @@ class InsuranceConfirmation extends Model
         'regional_manager',
         'approved_amount',
         'acceptance',
+        'note',
     ];
 
 }

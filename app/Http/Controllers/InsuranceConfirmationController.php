@@ -22,9 +22,10 @@ class InsuranceConfirmationController extends Controller
 
         $acceptedCount = InsuranceConfirmation::where('acceptance', 'yes')->count();
         $rejectedCount = InsuranceConfirmation::where('acceptance', 'no')->count();
+        $totalPending = InsuranceConfirmation::where('acceptance', null)->count();
 
         return view('backend.pages.insurance_confirmations.index', [
-            'total_insurance' => InsuranceConfirmation::count(),
+            'total_insurance' => $totalPending,
             'accepted_count' => $acceptedCount,
             'rejected_count' => $rejectedCount,
         ], compact('insuranceConfirmations'));
@@ -137,6 +138,20 @@ class InsuranceConfirmationController extends Controller
             'message' => $message,
             'status' => 'success'
         ]);
+    }
+
+    public function updateNote(Request $request, $id)
+    {
+        $insuranceConfirmation = InsuranceConfirmation::findOrFail($id);
+
+        $request->validate([
+            'note' => 'required|string|max:255', 
+        ]);
+
+        $insuranceConfirmation->note = $request->note;
+        $insuranceConfirmation->save();
+
+        return redirect()->back()->with('success', 'Note updated successfully.');
     }
 
 }

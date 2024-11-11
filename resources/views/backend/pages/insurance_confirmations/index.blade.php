@@ -119,7 +119,9 @@ $usr = Auth::guard('admin')->user();
             @endif
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title float-left">{{ __('Admins') }}</h4>
+                    <div class="mb-2 float-left">
+                    </div>
+
                     <p class="float-right mb-2 mx-2">
                         @if ($usr && $usr->can('insurance-confirmations.import-view'))
                         <a class="btn btn-primary text-white"
@@ -160,6 +162,8 @@ $usr = Auth::guard('admin')->user();
                                     <th>{{ __('Area Manager') }}</th>
                                     <th>{{ __('Approved Amount') }}</th>
                                     <th>{{ __('Acceptance') }}</th>
+                                    <th>{{ __('Note') }}</th>
+                                    <th>{{ __('Action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -199,11 +203,55 @@ $usr = Auth::guard('admin')->user();
                                             </select>
                                         </form>
                                     </td>
+                                    <td>{{ $confirmation->note }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-info" data-toggle="modal"
+                                            data-target="#noteModal" data-id="{{ $confirmation->id }}"
+                                            data-farmer_name="{{ $confirmation->farmer_name }}"
+                                            data-note="{{ $confirmation->note }}">
+                                            Add Note
+                                        </button>
+                                    </td>
                                 </tr>
+
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
+
+                    <!-- Modal for adding note -->
+                    {{-- @foreach ($insuranceConfirmations as $confirmation) --}}
+                    <div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="noteModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="noteModalLabel">Add Note</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form id="updateNoteForm">
+                                    @csrf
+                                    <input type="hidden" name="confirmation_id" id="confirmationId">
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="noteText">Note</label>
+                                            <textarea name="note" id="noteText" class="form-control"
+                                                rows="4"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save Note</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- @endforeach --}}
+                    <!-- End of Modal for adding note -->
                 </div>
             </div>
         </div>
@@ -235,7 +283,7 @@ $usr = Auth::guard('admin')->user();
     $(document).ready(function() {
             if ($('#dataTable').length) {
                 $('#dataTable').DataTable({
-                    responsive: false,
+                    responsive: true,
                     // dom: 'Bfrtip',
                     dom: '<"top"lB>rt<"bottom"p><"clear">',
                     buttons: [
@@ -267,114 +315,166 @@ $usr = Auth::guard('admin')->user();
                     $('#select-all').prop('checked', false);
                 }
             });
+    });
+
+    function bulkAction(action) {
+            var selectedIds = [];
+            $('input[name="confirmations[]"]:checked').each(function() {
+                selectedIds.push($(this).val());
+            });
+
+            if (selectedIds.length === 0) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'No Records Selected',
+                    text: 'Please select at least one record to perform bulk action.'
+                });
+                return;
+            }
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: `Do you want to ${action === 'yes' ? 'accept' : 'reject'} the selected records?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: action === 'yes' ? '#28a745' : '#dc3545',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: action === 'yes' ? 'Yes, Accept!' : 'Yes, Reject!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "{{ route('admin.insurance-confirmations.bulk-update') }}",
+                        type: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            ids: selectedIds,
+                            action: action
+                        },
+                        success: function(response) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success!',
+                                text: response.message
+                            }).then(() => {
+                                location.reload();
+                            });
+                        },
+                        error: function(xhr) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: 'An error occurred while processing your request.'
+                            });
+                        }
+                    });
+                }
+            });
+    }
+
+    function bulkAction(action) {
+            var selectedIds = [];
+            $('input[name="confirmations[]"]:checked').each(function() {
+                selectedIds.push($(this).val());
+            });
+
+            if (selectedIds.length === 0) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'No Records Selected',
+                    text: 'Please select at least one record to perform bulk action.'
+                });
+                return;
+            }
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: `Do you want to ${action === 'yes' ? 'accept' : 'reject'} the selected records?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: action === 'yes' ? '#28a745' : '#dc3545',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: action === 'yes' ? 'Yes, Accept!' : 'Yes, Reject!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "{{ route('admin.insurance-confirmations.bulk-update') }}",
+                        type: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            ids: selectedIds,
+                            action: action
+                        },
+                        success: function(response) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success!',
+                                text: response.message
+                            }).then(() => {
+                                location.reload();
+                            });
+                        },
+                        error: function(xhr) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: 'An error occurred while processing your request.'
+                            });
+                        }
+                    });
+                }
+            });
+    }
+
+    // NOTE MODAL
+    $(document).ready(function() {
+        $('#noteModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget);
+        var id = button.data('id');
+        var farmerName = button.data('farmer_name');
+        var note = button.data('note');
+        
+        var modal = $(this);
+        modal.find('.modal-title').text('Add Note for ' + farmerName);
+        modal.find('#confirmationId').val(id);
+        modal.find('#noteText').val(note);
         });
 
-        function bulkAction(action) {
-            var selectedIds = [];
-            $('input[name="confirmations[]"]:checked').each(function() {
-                selectedIds.push($(this).val());
-            });
-
-            if (selectedIds.length === 0) {
+        
+        $('#updateNoteForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        var form = $(this);
+        var formData = form.serialize();
+        
+        $.ajax({
+            url: '/admin/insurance-confirmations/' + $('#confirmationId').val() + '/update-note',
+            type: 'POST',
+            data: formData,
+            success: function(response) {
+                $('#noteModal').modal('hide');
+                
+                // Show success SweetAlert
                 Swal.fire({
-                    icon: 'warning',
-                    title: 'No Records Selected',
-                    text: 'Please select at least one record to perform bulk action.'
+                    icon: 'success',
+                    title: 'Success!',
+                    text: 'Note updated successfully!',
+                    confirmButtonColor: '#28a745'
+                }).then(() => {
+                    location.reload(); // Reload page after SweetAlert is closed
                 });
-                return;
-            }
-
-            Swal.fire({
-                title: 'Are you sure?',
-                text: `Do you want to ${action === 'yes' ? 'accept' : 'reject'} the selected records?`,
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: action === 'yes' ? '#28a745' : '#dc3545',
-                cancelButtonColor: '#6c757d',
-                confirmButtonText: action === 'yes' ? 'Yes, Accept!' : 'Yes, Reject!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $.ajax({
-                        url: "{{ route('admin.insurance-confirmations.bulk-update') }}",
-                        type: 'POST',
-                        data: {
-                            _token: '{{ csrf_token() }}',
-                            ids: selectedIds,
-                            action: action
-                        },
-                        success: function(response) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Success!',
-                                text: response.message
-                            }).then(() => {
-                                location.reload();
-                            });
-                        },
-                        error: function(xhr) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Error!',
-                                text: 'An error occurred while processing your request.'
-                            });
-                        }
-                    });
-                }
-            });
-        }
-
-        function bulkAction(action) {
-            var selectedIds = [];
-            $('input[name="confirmations[]"]:checked').each(function() {
-                selectedIds.push($(this).val());
-            });
-
-            if (selectedIds.length === 0) {
+            },
+            error: function(response) {
+                // Show error SweetAlert
                 Swal.fire({
-                    icon: 'warning',
-                    title: 'No Records Selected',
-                    text: 'Please select at least one record to perform bulk action.'
+                    icon: 'error',
+                    title: 'Error!',
+                    text: 'An error occurred while updating the note.',
+                    confirmButtonColor: '#dc3545'
                 });
-                return;
             }
-
-            Swal.fire({
-                title: 'Are you sure?',
-                text: `Do you want to ${action === 'yes' ? 'accept' : 'reject'} the selected records?`,
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: action === 'yes' ? '#28a745' : '#dc3545',
-                cancelButtonColor: '#6c757d',
-                confirmButtonText: action === 'yes' ? 'Yes, Accept!' : 'Yes, Reject!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $.ajax({
-                        url: "{{ route('admin.insurance-confirmations.bulk-update') }}",
-                        type: 'POST',
-                        data: {
-                            _token: '{{ csrf_token() }}',
-                            ids: selectedIds,
-                            action: action
-                        },
-                        success: function(response) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Success!',
-                                text: response.message
-                            }).then(() => {
-                                location.reload();
-                            });
-                        },
-                        error: function(xhr) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Error!',
-                                text: 'An error occurred while processing your request.'
-                            });
-                        }
-                    });
-                }
-            });
-        }
+        });
+    });
+    });
+    // end NOTE MODAL
 </script>
 @endsection
