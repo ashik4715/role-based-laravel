@@ -31,10 +31,14 @@ class InsuranceConfirmationController extends Controller
         ], compact('insuranceConfirmations'));
     }
 
-    
     public function importView()
     {
         return view('backend.pages.insurance_confirmations.import');
+    }
+    
+    public function chartView()
+    {
+        return view('backend.pages.insurance_confirmations.charts');
     }
 
     public function import(Request $request)

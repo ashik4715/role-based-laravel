@@ -42,6 +42,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     // insurance_confirmations/import.blade.php
     Route::get('insurance-confirmations', [InsuranceConfirmationController::class, 'index'])->name('insurance-confirmations.view');
     Route::get('insurance-confirmations/import', [InsuranceConfirmationController::class, 'importView'])->name('insurance-confirmations.import-view');
+    Route::get('insurance-confirmations/chart', [InsuranceConfirmationController::class, 'chartView'])->name('insurance-confirmations.chart-view');
     Route::post('insurance-confirmations/import', [InsuranceConfirmationController::class, 'import'])->name('insurance-confirmations.import');
     Route::get('/insurance-confirmations/fetch', [InsuranceConfirmationController::class, 'fetchAndStoreData']);
     Route::put('/insurance-confirmations/{id}/acceptance', [InsuranceConfirmationController::class, 'updateAcceptance'])->name('insurance-confirmations.updateAcceptance');

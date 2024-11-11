@@ -77,9 +77,9 @@ $usr = Auth::guard('admin')->user();
                     <div class="card">
                         <div class="seo-fact sbg1">
                             <div class="p-4 d-flex justify-content-between align-items-center">
-                                <div class="seofct-icon">Total <i class="ti-info"></i> </div>
+                                <div class="seofct-icon">Pending </div>
                                 <h2>{{ $total_insurance }}</h2>
-                                <canvas id="seolinechart3" height="50"></canvas>
+                                <div class="seofct-icon"><i class="ti-info"></i> </div>
                             </div>
                         </div>
                     </div>
@@ -88,9 +88,9 @@ $usr = Auth::guard('admin')->user();
                     <div class="card">
                         <div class="seo-fact sbg2">
                             <div class="p-4 d-flex justify-content-between align-items-center">
-                                <div class="seofct-icon">Accepted <i class="ti-check-box"></i> </div>
+                                <div class="seofct-icon">Accepted </div>
                                 <h2>{{ $accepted_count }}</h2>
-                                <canvas id="seolinechart3" height="50"></canvas>
+                                <div class="seofct-icon"><i class="ti-check-box"></i> </div>
                             </div>
                         </div>
                     </div>
@@ -99,9 +99,9 @@ $usr = Auth::guard('admin')->user();
                     <div class="card">
                         <div class="seo-fact sbg3">
                             <div class="p-4 d-flex justify-content-between align-items-center">
-                                <div class="seofct-icon">Rejected <i class="ti-na"></i> </div>
+                                <div class="seofct-icon">Rejected </div>
                                 <h2>{{ $rejected_count }}</h2>
-                                <canvas id="seolinechart3" height="50"></canvas>
+                                <div class="seofct-icon"><i class="ti-na"></i> </div>
                             </div>
                         </div>
                     </div>
@@ -119,7 +119,14 @@ $usr = Auth::guard('admin')->user();
             @endif
             <div class="card">
                 <div class="card-body">
+
                     <div class="mb-2 float-left">
+                        <div class="btn-group bulk-actions">
+                            <a type="button" class="btn btn-outline-dark"
+                                href="{{ route('admin.insurance-confirmations.chart-view') }}">
+                                <i class="fa fa-bar-chart-o"></i>{{ __('Chart Reports') }}
+                            </a>
+                        </div>
                     </div>
 
                     <p class="float-right mb-2 mx-2">
@@ -290,8 +297,8 @@ $usr = Auth::guard('admin')->user();
                         'copy', 'csv', 'excel', 'pdf', 'print'
                     ],
                     lengthMenu: [
-                        [10, 25, 50, -1],
-                        [10, 25, 50, 'All']
+                        [10, 25, 50, 100, -1],
+                        [10, 25, 50, 100, 'All']
                     ],
                     order: [
                         [1, 'asc']
