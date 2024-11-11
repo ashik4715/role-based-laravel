@@ -49,6 +49,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     // Login Routes.
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('/login/submit', [LoginController::class, 'login'])->name('login.submit');
+    Route::post('/admin/insurance-confirmations/bulk-update', [InsuranceConfirmationController::class, 'bulkUpdateAcceptance'])
+    ->name('insurance-confirmations.bulk-update');
 
     // Logout Routes.
     Route::post('/logout/submit', [LoginController::class, 'logout'])->name('logout.submit');

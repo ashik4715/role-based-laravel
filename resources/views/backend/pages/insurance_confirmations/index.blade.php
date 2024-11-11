@@ -19,10 +19,37 @@ $usr = Auth::guard('admin')->user();
 
 <!-- DataTables Buttons CSS for Export -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
+
+<!-- CSS of Bulk ACCEPT -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+<style>
+    .bulk-actions {
+        margin-bottom: 15px;
+    }
+
+    .bulk-actions button {
+        padding: 8px 15px;
+        font-weight: 500;
+    }
+
+    table.dataTable tbody td {
+        vertical-align: middle;
+    }
+
+    input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    .custom-select {
+        min-width: 100px;
+    }
+</style>
+<!-- End Css of Bulk ACCEPT -->
 @endsection
 
 @section('admin-content')
-
 <div class="page-title-area">
     <div class="row align-items-center">
         <div class="col-sm-6">
@@ -84,16 +111,16 @@ $usr = Auth::guard('admin')->user();
         </div>
 
         <div class="col-lg-12 mt-4">
-            @if(session('success'))
+            @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
             @endif
-            @if(session('error'))
+            @if (session('error'))
             <div class="alert alert-danger">{{ session('error') }}</div>
             @endif
             <div class="card">
                 <div class="card-body">
                     <h4 class="header-title float-left">{{ __('Admins') }}</h4>
-                    <p class="float-right mb-2">
+                    <p class="float-right mb-2 mx-2">
                         @if ($usr && $usr->can('insurance-confirmations.import-view'))
                         <a class="btn btn-primary text-white"
                             href="{{ route('admin.insurance-confirmations.import-view') }}">
@@ -101,30 +128,45 @@ $usr = Auth::guard('admin')->user();
                         </a>
                         @endif
                     </p>
+
+                    <div class="mb-2 text-right">
+                        <div class="btn-group bulk-actions">
+                            <button type="button" class="btn btn-success" onclick="bulkAction('yes')">
+                                <i class="fa fa-check"></i> Bulk Accept
+                            </button>
+                            <button type="button" class="btn btn-danger ml-2" onclick="bulkAction('no')">
+                                <i class="fa fa-times"></i> Bulk Reject
+                            </button>
+                        </div>
+                    </div>
+
                     <h4 class="header-title">Insurance Confirmation List</h4>
 
                     <div class="table-responsive">
                         <table id="dataTable" class="text-center">
                             <thead class="bg-light text-capitalize">
                                 <tr>
-                                    <th>{{ __('FID')}}</th>
-                                    <th>{{ __('Farmer Name')}}</th>
-                                    <th>{{ __('NID')}}</th>
-                                    <th>{{ __('Phone')}}</th>
-                                    <th>{{ __('Thana')}}</th>
-                                    <th>{{ __('Area')}}</th>
-                                    <th>{{ __('Region')}}</th>
-                                    <th>{{ __('Project Name')}}</th>
-                                    <th>{{ __('FO ID')}}</th>
-                                    <th>{{ __('FO Name')}}</th>
-                                    <th>{{ __('Area Manager')}}</th>
-                                    <th>{{ __('Approved Amount')}}</th>
-                                    <th>{{ __('Acceptance')}}</th>
+                                    <th><input type="checkbox" id="select-all"></th>
+                                    <th>{{ __('FID') }}</th>
+                                    <th>{{ __('Farmer Name') }}</th>
+                                    <th>{{ __('NID') }}</th>
+                                    <th>{{ __('Phone') }}</th>
+                                    <th>{{ __('Thana') }}</th>
+                                    <th>{{ __('Area') }}</th>
+                                    <th>{{ __('Region') }}</th>
+                                    <th>{{ __('Project Name') }}</th>
+                                    <th>{{ __('FO ID') }}</th>
+                                    <th>{{ __('FO Name') }}</th>
+                                    <th>{{ __('Area Manager') }}</th>
+                                    <th>{{ __('Approved Amount') }}</th>
+                                    <th>{{ __('Acceptance') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($insuranceConfirmations as $confirmation)
+                                @foreach ($insuranceConfirmations as $confirmation)
                                 <tr>
+                                    <td><input type="checkbox" name="confirmations[]" value="{{ $confirmation->id }}">
+                                    </td>
                                     <td>{{ $confirmation->fid }}</td>
                                     <td>{{ $confirmation->farmer_name }}</td>
                                     <td>{{ $confirmation->nid }}</td>
@@ -146,11 +188,14 @@ $usr = Auth::guard('admin')->user();
                                             <select name="acceptance" onchange="this.form.submit()"
                                                 class="custom-select">
                                                 <option value="" {{ is_null($confirmation->acceptance) ? 'selected' : ''
-                                                    }}>Select</option>
+                                                    }}>
+                                                    Select</option>
                                                 <option value="yes" {{ $confirmation->acceptance === 'yes' ? 'selected'
-                                                    : '' }}>Yes</option>
+                                                    : '' }}>
+                                                    Yes</option>
                                                 <option value="no" {{ $confirmation->acceptance === 'no' ? 'selected' :
-                                                    '' }}>No</option>
+                                                    '' }}>
+                                                    No</option>
                                             </select>
                                         </form>
                                     </td>
@@ -184,27 +229,152 @@ $usr = Auth::guard('admin')->user();
 <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
 
 <script>
-    $(document).ready(function () {
-    if ($('#dataTable').length) {
-        console.log("DataTable found, initializing...");
-        $('#dataTable').DataTable({
-            responsive: false,
-            // dom: 'Bfrtip',
-            dom: '<"top"lB>rt<"bottom"p><"clear">',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ],
-            lengthMenu: [
-                [10, 25, 50, -1],
-                [10, 25, 50, 'All']
-            ]
-        });
-    } else {
-        console.log("DataTable element not found.");
-    }
-});
+    $(document).ready(function() {
+            if ($('#dataTable').length) {
+                $('#dataTable').DataTable({
+                    responsive: false,
+                    // dom: 'Bfrtip',
+                    dom: '<"top"lB>rt<"bottom"p><"clear">',
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ],
+                    lengthMenu: [
+                        [10, 25, 50, -1],
+                        [10, 25, 50, 'All']
+                    ],
+                    order: [
+                        [1, 'asc']
+                    ]
+                });
+            } else {
+                console.log("DataTable element not found.");
+            }
 
+            // Handle select all checkbox
+            $('#select-all').change(function() {
+                $('input[name="confirmations[]"]').prop('checked', $(this).prop('checked'));
+            });
+
+            // Update select-all when individual checkboxes change
+            $('input[name="confirmations[]"]').change(function() {
+                if ($('input[name="confirmations[]"]:checked').length === $('input[name="confirmations[]"]')
+                    .length) {
+                    $('#select-all').prop('checked', true);
+                } else {
+                    $('#select-all').prop('checked', false);
+                }
+            });
+        });
+
+        function bulkAction(action) {
+            var selectedIds = [];
+            $('input[name="confirmations[]"]:checked').each(function() {
+                selectedIds.push($(this).val());
+            });
+
+            if (selectedIds.length === 0) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'No Records Selected',
+                    text: 'Please select at least one record to perform bulk action.'
+                });
+                return;
+            }
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: `Do you want to ${action === 'yes' ? 'accept' : 'reject'} the selected records?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: action === 'yes' ? '#28a745' : '#dc3545',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: action === 'yes' ? 'Yes, Accept!' : 'Yes, Reject!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "{{ route('admin.insurance-confirmations.bulk-update') }}",
+                        type: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            ids: selectedIds,
+                            action: action
+                        },
+                        success: function(response) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success!',
+                                text: response.message
+                            }).then(() => {
+                                location.reload();
+                            });
+                        },
+                        error: function(xhr) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: 'An error occurred while processing your request.'
+                            });
+                        }
+                    });
+                }
+            });
+        }
+
+        function bulkAction(action) {
+            var selectedIds = [];
+            $('input[name="confirmations[]"]:checked').each(function() {
+                selectedIds.push($(this).val());
+            });
+
+            if (selectedIds.length === 0) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'No Records Selected',
+                    text: 'Please select at least one record to perform bulk action.'
+                });
+                return;
+            }
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: `Do you want to ${action === 'yes' ? 'accept' : 'reject'} the selected records?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: action === 'yes' ? '#28a745' : '#dc3545',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: action === 'yes' ? 'Yes, Accept!' : 'Yes, Reject!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "{{ route('admin.insurance-confirmations.bulk-update') }}",
+                        type: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            ids: selectedIds,
+                            action: action
+                        },
+                        success: function(response) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success!',
+                                text: response.message
+                            }).then(() => {
+                                location.reload();
+                            });
+                        },
+                        error: function(xhr) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: 'An error occurred while processing your request.'
+                            });
+                        }
+                    });
+                }
+            });
+        }
 </script>
 @endsection

@@ -115,4 +115,28 @@ class InsuranceConfirmationController extends Controller
             ->with($messageType, $message);
     }
 
+    public function bulkUpdateAcceptance(Request $request)
+    {
+        $request->validate([
+            'ids' => 'required|array',
+            'ids.*' => 'exists:insurance_confirmations,id',
+            'action' => 'required|in:yes,no'
+        ]);
+
+        $ids = $request->input('ids');
+        $action = $request->input('action');
+
+        InsuranceConfirmation::whereIn('id', $ids)->update(['acceptance' => $action]);
+
+        $count = count($ids);
+        $message = $action === 'yes' 
+            ? "{$count} insurance confirmations have been approved!" 
+            : "{$count} insurance confirmations have been rejected!";
+
+        return response()->json([
+            'message' => $message,
+            'status' => 'success'
+        ]);
+    }
+
 }
