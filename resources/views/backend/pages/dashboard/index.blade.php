@@ -67,7 +67,7 @@ Dashboard Page - Admin Panel
             </div>
 
             <!-- section applications tables -->
-            <div class="col-lg-12 grid-margin stretch-card">
+            <div class="col-lg-12 grid-margin stretch-card mt-3">
                 <div class="card">
                     <div class="card-body">
                     <h4 class="card-title">Showing Applications: <b>{{ count($applications) }}</b></h4>

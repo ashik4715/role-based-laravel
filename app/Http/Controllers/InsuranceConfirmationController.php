@@ -20,7 +20,14 @@ class InsuranceConfirmationController extends Controller
             $insuranceConfirmations = InsuranceConfirmation::all(); // Re-fetch after storing
         }
 
-        return view('backend.pages.insurance_confirmations.index', compact('insuranceConfirmations'));
+        $acceptedCount = InsuranceConfirmation::where('acceptance', 'yes')->count();
+        $rejectedCount = InsuranceConfirmation::where('acceptance', 'no')->count();
+
+        return view('backend.pages.insurance_confirmations.index', [
+            'total_insurance' => InsuranceConfirmation::count(),
+            'accepted_count' => $acceptedCount,
+            'rejected_count' => $rejectedCount,
+        ], compact('insuranceConfirmations'));
     }
 
     

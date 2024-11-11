@@ -5,7 +5,7 @@ List Insurance Confirmation - WCP
 @endsection
 
 @php
-    $usr = Auth::guard('admin')->user();
+$usr = Auth::guard('admin')->user();
 @endphp
 
 @section('styles')
@@ -41,47 +41,89 @@ List Insurance Confirmation - WCP
 </div>
 
 <div class="main-content-inner">
-  <div class="row">
-    <div class="col-lg-12 mt-4">
-        @if(session('success'))
+    <div class="row">
+
+        <div class="col-lg-12">
+            <div class="row">
+
+                <div class="col-md-4 my-3 mb-lg-0">
+                    <div class="card">
+                        <div class="seo-fact sbg1">
+                            <div class="p-4 d-flex justify-content-between align-items-center">
+                                <div class="seofct-icon">Total <i class="ti-info"></i> </div>
+                                <h2>{{ $total_insurance }}</h2>
+                                <canvas id="seolinechart3" height="50"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 my-3 mb-lg-0">
+                    <div class="card">
+                        <div class="seo-fact sbg2">
+                            <div class="p-4 d-flex justify-content-between align-items-center">
+                                <div class="seofct-icon">Accepted <i class="ti-check-box"></i> </div>
+                                <h2>{{ $accepted_count }}</h2>
+                                <canvas id="seolinechart3" height="50"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 my-3 mb-lg-0">
+                    <div class="card">
+                        <div class="seo-fact sbg3">
+                            <div class="p-4 d-flex justify-content-between align-items-center">
+                                <div class="seofct-icon">Rejected <i class="ti-na"></i> </div>
+                                <h2>{{ $rejected_count }}</h2>
+                                <canvas id="seolinechart3" height="50"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-lg-12 mt-4">
+            @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
-        @if(session('error'))
+            @endif
+            @if(session('error'))
             <div class="alert alert-danger">{{ session('error') }}</div>
-        @endif
-        <div class="card">
-            <div class="card-body">
-                <h4 class="header-title float-left">{{ __('Admins') }}</h4>
-                <p class="float-right mb-2">
-                    @if ($usr->can('insurance-confirmations.import-view'))
-                    <a class="btn btn-primary text-white" href="{{ route('admin.insurance-confirmations.import-view') }}">
-                        {{ __('Import XLSX') }}
-                    </a>
-                    @endif
-                </p>
-                <h4 class="header-title">Insurance Confirmation List</h4>
-                
-                <div class="table-responsive">
-                    <table id="dataTable" class="text-center">
-                        <thead class="bg-light text-capitalize">
-                            <tr>
-                                <th>{{ __('FID')}}</th>
-                                <th>{{ __('Farmer Name')}}</th>
-                                <th>{{ __('NID')}}</th>
-                                <th>{{ __('Phone')}}</th>
-                                <th>{{ __('Thana')}}</th>
-                                <th>{{ __('Area')}}</th>
-                                <th>{{ __('Region')}}</th>
-                                <th>{{ __('Project Name')}}</th>
-                                <th>{{ __('FO ID')}}</th>
-                                <th>{{ __('FO Name')}}</th>
-                                <th>{{ __('Area Manager')}}</th>
-                                <th>{{ __('Approved Amount')}}</th>
-                                <th>{{ __('Acceptance')}}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($insuranceConfirmations as $confirmation)
+            @endif
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title float-left">{{ __('Admins') }}</h4>
+                    <p class="float-right mb-2">
+                        @if ($usr && $usr->can('insurance-confirmations.import-view'))
+                        <a class="btn btn-primary text-white"
+                            href="{{ route('admin.insurance-confirmations.import-view') }}">
+                            {{ __('Import XLSX') }}
+                        </a>
+                        @endif
+                    </p>
+                    <h4 class="header-title">Insurance Confirmation List</h4>
+
+                    <div class="table-responsive">
+                        <table id="dataTable" class="text-center">
+                            <thead class="bg-light text-capitalize">
+                                <tr>
+                                    <th>{{ __('FID')}}</th>
+                                    <th>{{ __('Farmer Name')}}</th>
+                                    <th>{{ __('NID')}}</th>
+                                    <th>{{ __('Phone')}}</th>
+                                    <th>{{ __('Thana')}}</th>
+                                    <th>{{ __('Area')}}</th>
+                                    <th>{{ __('Region')}}</th>
+                                    <th>{{ __('Project Name')}}</th>
+                                    <th>{{ __('FO ID')}}</th>
+                                    <th>{{ __('FO Name')}}</th>
+                                    <th>{{ __('Area Manager')}}</th>
+                                    <th>{{ __('Approved Amount')}}</th>
+                                    <th>{{ __('Acceptance')}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($insuranceConfirmations as $confirmation)
                                 <tr>
                                     <td>{{ $confirmation->fid }}</td>
                                     <td>{{ $confirmation->farmer_name }}</td>
@@ -96,25 +138,31 @@ List Insurance Confirmation - WCP
                                     <td>{{ $confirmation->area_manager }}</td>
                                     <td>{{ $confirmation->approved_amount }}</td>
                                     <td>
-                                        <form action="{{ route('admin.insurance-confirmations.updateAcceptance', $confirmation->id) }}" method="POST">
+                                        <form
+                                            action="{{ route('admin.insurance-confirmations.updateAcceptance', $confirmation->id) }}"
+                                            method="POST">
                                             @csrf
                                             @method('PUT')
-                                            <select name="acceptance" onchange="this.form.submit()" class="custom-select">
-                                                <option value="" {{ is_null($confirmation->acceptance) ? 'selected' : '' }}>Select</option>
-                                                <option value="yes" {{ $confirmation->acceptance === 'yes' ? 'selected' : '' }}>Yes</option>
-                                                <option value="no" {{ $confirmation->acceptance === 'no' ? 'selected' : '' }}>No</option>
+                                            <select name="acceptance" onchange="this.form.submit()"
+                                                class="custom-select">
+                                                <option value="" {{ is_null($confirmation->acceptance) ? 'selected' : ''
+                                                    }}>Select</option>
+                                                <option value="yes" {{ $confirmation->acceptance === 'yes' ? 'selected'
+                                                    : '' }}>Yes</option>
+                                                <option value="no" {{ $confirmation->acceptance === 'no' ? 'selected' :
+                                                    '' }}>No</option>
                                             </select>
                                         </form>
                                     </td>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-  </div>
 </div>
 @endsection
 
@@ -138,7 +186,7 @@ List Insurance Confirmation - WCP
 
 
 <script>
-$(document).ready(function () {
+    $(document).ready(function () {
     if ($('#dataTable').length) {
         console.log("DataTable found, initializing...");
         $('#dataTable').DataTable({

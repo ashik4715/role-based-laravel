@@ -15,7 +15,7 @@
             <nav>
                 <ul class="metismenu" id="menu">
 
-                    @if ($usr->can('dashboard.view'))
+                    @if ($usr && $usr->can('dashboard.view'))
                     <li class="active">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
                         <ul class="collapse">
@@ -24,7 +24,7 @@
                     </li>
                     @endif
 
-                    @if ($usr->can('role.create') || $usr->can('role.view') ||  $usr->can('role.edit') ||  $usr->can('role.delete'))
+                    @if ($usr && ($usr->can('role.create') || $usr->can('role.view') ||  $usr->can('role.edit') ||  $usr->can('role.delete')))
                     <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-tasks"></i><span>
                             Roles & Permissions
@@ -41,7 +41,7 @@
                     @endif
 
                     
-                    @if ($usr->can('admin.create') || $usr->can('admin.view') ||  $usr->can('admin.edit') ||  $usr->can('admin.delete'))
+                    @if ($usr && ($usr->can('admin.create') || $usr->can('admin.view') ||  $usr->can('admin.edit') ||  $usr->can('admin.delete')))
                     <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-user"></i><span>
                             Admins
@@ -59,7 +59,7 @@
                     </li>
                     @endif
 
-                    @if ($usr->can('insurance-confirmations.view'))
+                    @if ($usr && $usr->can('insurance-confirmations.view'))
                     <li class="active">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>Insurance Confirmation</span></a>
                         <ul class="collapse">
