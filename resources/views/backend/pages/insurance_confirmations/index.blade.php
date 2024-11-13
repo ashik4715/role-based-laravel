@@ -45,6 +45,30 @@ $usr = Auth::guard('admin')->user();
     .custom-select {
         min-width: 100px;
     }
+
+    .btn-danger {
+        background-color: #ff8f1c !important;
+    }
+
+    .btn-danger:hover {
+        background-color: #db6e00 !important;
+    }
+
+    .btn-primary {
+        background-color: #015546 !important;
+    }
+
+    .btn-primary:hover {
+        background-color: #042f39 !important;
+    }
+
+    .btn-success {
+        background-color: #015546 !important;
+    }
+
+    .btn-success:hover {
+        background-color: #00382e !important;
+    }
 </style>
 <!-- End Css of Bulk ACCEPT -->
 @endsection
