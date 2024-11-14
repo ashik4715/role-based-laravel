@@ -82,13 +82,17 @@ $usr = Auth::guard('admin')->user();
                     @endif
 
                     @if ($usr && $usr->can('insurance-confirmations.view'))
-                    <li class="active">
+                    <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>Insurance
                                 Confirmation</span></a>
                         <ul class="collapse">
-                            <li class="{{ Route::is('admin.dashboard') ? 'active' : '' }}"><a
+                            <li class="{{ Route::is('insurance-confirmations.view') ? 'active' : '' }}"><a
                                     href="{{ route('admin.insurance-confirmations.view') }}">List Insurance
                                     Confirmation</a></li>
+                        </ul>
+                        <ul class="collapse">
+                            <li class="{{ Route::is('insurance-confirmations.view') ? 'active' : '' }}"><a
+                                    href="{{ route('admin.insurance-confirmations.chart-view') }}">Charts</a></li>
                         </ul>
                     </li>
                     @endif

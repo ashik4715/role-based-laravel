@@ -38,7 +38,15 @@ class InsuranceConfirmationController extends Controller
     
     public function chartView()
     {
-        return view('backend.pages.insurance_confirmations.charts');
+        $pendingCountsByArea = InsuranceConfirmation::whereNull('acceptance')
+            ->select('area')
+            ->groupBy('area')
+            ->selectRaw('count(*) as pending_count')
+            ->pluck('pending_count', 'area');
+
+        return view('backend.pages.insurance_confirmations.charts', [
+            'pendingCountsByArea' => $pendingCountsByArea
+        ]);
     }
 
     public function import(Request $request)

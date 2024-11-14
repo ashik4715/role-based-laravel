@@ -20,3 +20,5 @@
 <link rel="stylesheet" href="{{ asset('backend/assets/css/magnific-popup.css') }}">
 <link rel="stylesheet" href="{{ asset('backend/assets/css/slick.css') }}">
 <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">

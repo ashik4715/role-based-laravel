@@ -143,7 +143,7 @@ $usr = Auth::guard('admin')->user();
             @endif
             <div class="card">
                 <div class="card-body">
-
+                    <h4 class="header-title">Insurance Confirmation List</h4>
                     <div class="mb-2 float-left">
                         <div class="btn-group bulk-actions">
                             <a type="button" class="btn btn-outline-dark"
@@ -172,8 +172,6 @@ $usr = Auth::guard('admin')->user();
                             </button>
                         </div>
                     </div>
-
-                    <h4 class="header-title">Insurance Confirmation List</h4>
 
                     <div class="table-responsive">
                         <table id="dataTable" class="text-center">
@@ -236,8 +234,9 @@ $usr = Auth::guard('admin')->user();
                                     </td>
                                     <td>{{ $confirmation->note }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-info" data-toggle="modal"
-                                            data-target="#noteModal" data-id="{{ $confirmation->id }}"
+                                        <button type="button" class="btn btn-outline-dark btn-rounded"
+                                            data-toggle="modal" data-target="#noteModal"
+                                            data-id="{{ $confirmation->id }}"
                                             data-farmer_name="{{ $confirmation->farmer_name }}"
                                             data-note="{{ $confirmation->note }}">
                                             Add Note
