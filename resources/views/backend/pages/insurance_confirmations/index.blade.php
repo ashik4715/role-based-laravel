@@ -272,9 +272,9 @@ $usr = Auth::guard('admin')->user();
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
+                                        <button type="button" class="btn btn-rounded btn-secondary"
                                             data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Save Note</button>
+                                        <button type="submit" class="btn btn-rounded btn-primary">Save Note</button>
                                     </div>
                                 </form>
                             </div>

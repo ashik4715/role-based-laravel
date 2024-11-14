@@ -25,13 +25,28 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Http;
 
 class ApplicationController extends Controller
 {
     public function viewJson($id)
     {
-        $application = Application::findOrFail($id);
-        $data = json_decode($application->application_data, true);
+        $response = Http::withHeaders([
+            'api-key' => 'wegro_control_service',
+        ])->get('http://192.168.0.167:7002/api/wcp-applications');
+
+        if ($response->successful()) {
+            $applications = $response->json();
+
+            // Check if the response is an array and contains the desired data
+            if (is_array($applications) && isset($applications[0]['application_data'])) {
+                $data = json_decode($applications[0]['application_data']); 
+            } else {
+                $data = null; 
+            }
+        } else {
+            $data = null; 
+        }
 
         return view('backend.pages.dashboard.view-json', compact('data'));
     }

@@ -10,12 +10,21 @@ use App\Models\Application;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Http;
 
 class DashboardController extends Controller
 {
     public function index()
     {
         $this->checkAuthorization(auth()->user(), ['dashboard.view']);
+
+        $response = Http::withHeaders([
+            'api-key' => 'wegro_control_service',
+        ])->get('http://192.168.0.167:7002/api/wcp-applications');
+
+        if ($response->successful()) {
+            $data = $response->json();
+        }
 
         $applications = Application::select(
             'id',
@@ -43,6 +52,7 @@ class DashboardController extends Controller
                 'address' => $addressData['address'] ?? null,
             ];
         });
+        // dd($data, $applications[0]);
 
         return view(
             'backend.pages.dashboard.index',
@@ -51,7 +61,7 @@ class DashboardController extends Controller
                 'total_roles' => Role::count(),
                 'total_permissions' => Permission::count(),
             ],
-            compact('applications')
+            compact('applications','data')
         );
     }
 

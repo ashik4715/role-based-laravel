@@ -69,7 +69,7 @@ Dashboard | WCP
                 <div class="col-lg-12 grid-margin stretch-card mt-3">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Showing Applications: <b>{{ count($applications) }}</b></h4>
+                            <h4 class="card-title">Showing Applications: <b>{{ count($data) }}</b></h4>
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
@@ -98,11 +98,11 @@ Dashboard | WCP
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($applications as $row)
+                                        @foreach($data as $row)
                                         <tr>
                                             <td>{{ $row['id'] }}</td>
                                             <td>{{ $row['agent_id'] }}</td>
-                                            <td>{{ $row['phone'] }}</td>
+                                            <td>{{ $row['column_1'] }}</td>
                                             <td>
                                                 <a href="{{ route('admin.view.json', $row['id']) }}"
                                                     class="btn btn-warning btn-sm">
