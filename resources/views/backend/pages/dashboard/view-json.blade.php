@@ -90,7 +90,11 @@ JSON Page - Ogro
 <div class="main-content-inner">
     <div class="row">
         <div class="col-lg-12 mt-5 grid-margin stretch-card">
-            @foreach($data as $key => $value)
+            @php
+            $value = reset($data);
+            @endphp
+            {{-- @foreach($data as $key => $value) --}}
+            @if($value)
             <div class="row mb-4">
                 <div class="col-md-6">
                     <h5>Application ID: #{{ $single_application['id'] ?? 'N/A' }}
@@ -456,8 +460,118 @@ JSON Page - Ogro
                         </div>
                     </div>
                 </div>
+
+                <!-- Accordion 4: Farmer_type কৃষকের ধরণ -->
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
+                                aria-expanded="false" aria-controls="collapseFour">
+                                <b>4. কৃষকের ধরণ</b>
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="row">
+                                <b>কৃষকের ধরণ</b>
+                            </div>
+                            <!-- Iterate over the address fields -->
+                            @foreach($data['assessment_info']['pages'] as $page)
+                            @php
+                            // dd($page);
+                            @endphp
+                            @foreach([
+                            'assessment_info',
+                            'farmer_has_bank',
+                            'farmer_loan_wegro',
+                            'present_loan_farmer',
+                            'present_loan_mfi',
+                            'has_cows',
+                            'has_goats',
+                            'has_goats',
+                            'count_cows',
+                            'count_goats',
+                            'type_farming_jomi',
+                            'cultivated_own_land',
+                            'cultivated_rented_land',
+                            'mfi_amount_loan',
+                            'amount_loan_taken',
+                            'current_loan_amount',
+                            ] as $field)
+                            <div class="row detail-row">
+                                <div class="col-md-4">
+                                    <span>{{ ucfirst(str_replace('_', ' ', $field)) }}</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values'][$field]['value']
+                                        ?? 'N/A'
+                                        }}</span>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <button class="btn btn-outline-dark">
+                                        <i class="ti-comment-alt"> Comment</i>
+                                    </button>
+                                </div>
+                            </div>
+                            @endforeach
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 5: Farmer_type প্রোজেক্ট এর ধরণ -->
+                <div class="card">
+                    <div class="card-header" id="headingFive">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"
+                                aria-expanded="false" aria-controls="collapseFive">
+                                <b>5. প্রোজেক্ট এর ধরণ</b>
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="row">
+                                <b>প্রোজেক্ট এর ধরণ</b>
+                            </div>
+                            <!-- Iterate over the address fields -->
+                            @foreach($data['project_loan_details']['pages'] as $page)
+                            @php
+                            // dd($page);
+                            @endphp
+                            @foreach([
+                            'crop_selection_single',
+                            'crop_time',
+                            'requested_loan_amount',
+                            'requested_loan_amount_fieldOfficer',
+                            ] as $field)
+                            <div class="row detail-row">
+                                <div class="col-md-4">
+                                    <span>{{ ucfirst(str_replace('_', ' ', $field)) }}</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values'][$field]['value']
+                                        ?? 'N/A'
+                                        }}</span>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <button class="btn btn-outline-dark">
+                                        <i class="ti-comment-alt"> Comment</i>
+                                    </button>
+                                </div>
+                            </div>
+                            @endforeach
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            @endforeach
+            @endif
+            {{-- @endforeach --}}
         </div>
     </div>
 </div>
