@@ -31,24 +31,53 @@ class ApplicationController extends Controller
 {
     public function viewJson($id)
     {
-        $response = Http::withHeaders([
-            'api-key' => 'wegro_control_service',
-        ])->get('http://192.168.0.167:7002/api/wcp-applications');
+        try {
+            $response = Http::withHeaders([
+                'api-key' => 'wegro_control_service',
+            ])->get('http://192.168.0.167:7002/api/wcp-applications');
 
-        if ($response->successful()) {
-            $applications = $response->json();
+            if ($response->successful()) {
+                $applications = $response->json();
+                
+                // Initialize variables
+                $data = null;
+                $single_application = null;
+                
+                // Validate response structure
+                if (is_array($applications) && !empty($applications)) {
+                    $application = $applications[0];
+                    
+                    // Check if application_data exists and is valid JSON
+                    if (isset($application['application_data'])) {
+                        // Decode JSON string to array
+                        $data = is_string($application['application_data']) 
+                            ? json_decode($application['application_data'], true) 
+                            : $application['application_data'];
+                            
+                        $single_application = $application;                        
+                    }
+                }
+                // dd( $data);
 
-            // Check if the response is an array and contains the desired data
-            if (is_array($applications) && isset($applications[0]['application_data'])) {
-                $data = json_decode($applications[0]['application_data']); 
-            } else {
-                $data = null; 
+                return view('backend.pages.dashboard.view-json', [
+                    'data' => $data,
+                    'single_application' => $single_application
+                ]);
             }
-        } else {
-            $data = null; 
+            
+            return view('backend.pages.dashboard.view-json', [
+                'data' => null,
+                'single_application' => null,
+                'error' => 'API request failed'
+            ]);
+            
+        } catch (\Exception $e) {
+            return view('backend.pages.dashboard.view-json', [
+                'data' => null,
+                'single_application' => null,
+                'error' => 'Error processing data: ' . $e->getMessage()
+            ]);
         }
-
-        return view('backend.pages.dashboard.view-json', compact('data'));
     }
 
     public function destroy($id)

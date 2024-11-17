@@ -1,10 +1,70 @@
-
 @extends('backend.layouts.master')
 
 @section('title')
 JSON Page - Ogro
 @endsection
 
+@section('styles')
+<style>
+    .tab-btn {
+        border: 1px solid #dee2e6;
+        background: #f8f9fa;
+        padding: 10px 20px;
+        margin-right: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .tab-btn.active {
+        background: #007bff;
+        color: white;
+        border-color: #007bff;
+    }
+
+    .status-badge {
+        background: #007bff;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+    }
+
+    .action-btn {
+        padding: 6px 20px;
+        border-radius: 4px;
+        margin-left: 10px;
+    }
+
+    .farmer-image {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+        margin-bottom: 15px;
+    }
+
+    .detail-row {
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .comment-icon {
+        color: #6c757d;
+        cursor: pointer;
+        float: right;
+    }
+</style>
+<style>
+    pre {
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 4px;
+        padding: 10px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+</style>
+@endsection
 
 @section('admin-content')
 
@@ -28,55 +88,377 @@ JSON Page - Ogro
 <!-- page title area end -->
 
 <div class="main-content-inner">
-  <div class="row">
-    <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">JSON Data Display</h4>
-                <p class="card-description">
-                    Human-friendly representation of JSON data
-                </p>
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Key</th>
-                                <th>Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($data as $key => $value)
-                            <tr>
-                                <td><strong>{{ $key }}</strong></td>
-                                <td>
-                                    @if(is_array($value) || is_object($value))
-                                    <pre>{{ json_encode($value, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) }}</pre>
-                                    @else
-                                    {{ $value }}
-                                    @endif
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+    <div class="row">
+        <div class="col-lg-12 mt-5 grid-margin stretch-card">
+            @foreach($data as $key => $value)
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h5>Application ID: #{{ $single_application['id'] ?? 'N/A' }}
+                        <span class="status-badge">{{ $single_application->status ?? 'Pending' }}</span>
+                    </h5>
+                    <p class="mb-1">Farmer: {{ $value['farmer_info']['values']['nid_name_english']['value'] ?? 'N/A' }}
+                    </p>
+                    <p class="mb-1">Address: {{
+                        implode(', ', [
+                        $value['farmer_info']['values']['permanent_address']['children']['registered_thana']['value'] ??
+                        'N/A',
+                        $value['farmer_info']['values']['permanent_address']['children']['registered_village']['value']
+                        ?? 'N/A',
+                        $value['farmer_info']['values']['permanent_address']['children']['registered_district']['value']
+                        ?? 'N/A',
+                        $value['farmer_info']['values']['permanent_address']['children']['registered_division']['value']
+                        ?? 'N/A',
+                        $value['farmer_info']['values']['permanent_address']['children']['registered_post_code']['value']
+                        ?? 'N/A',
+                        $value['farmer_info']['values']['permanent_address']['children']['registered_post_office']['value']
+                        ?? 'N/A',
+                        ]) }}
+                    </p>
+                    <p>Agent: {{ Auth::guard('admin')->user()->name ?? 'N/A' }}</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <div>
+                        <button class="btn btn-warning action-btn">Re-Submit</button>
+                        <button class="btn btn-success action-btn">Approve</button>
+                        <button class="btn btn-danger action-btn">Reject</button>
+                    </div>
                 </div>
             </div>
+
+            <!-- Accordion -->
+            <div id="accordion">
+                <!-- Accordion 1: Personal Information (NID type) -->
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
+                                <b>1. ব্যক্তিগত তথ্য</b>
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6>Attachment</h6>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            @php
+                                            $url = 'https://wegro-agent-production.s3.ap-southeast-1.amazonaws.com/';
+                                            $front_image = $value['nid_images']['value']['front_image'] ?? null;
+                                            $back_image = $value['nid_images']['value']['back_image'] ?? null;
+                                            $selfie_images = $value['selfie_images']['value']['user_image'] ?? null;
+
+                                            $frontImageUrl = $front_image ? $url . $front_image :
+                                            '/api/placeholder/400/300';
+                                            $backImageUrl = $back_image ? $url . $back_image :
+                                            '/api/placeholder/400/300';
+                                            $selfieImageUrl = $selfie_images ? $url . $selfie_images :
+                                            '/api/placeholder/400/300';
+                                            @endphp
+                                            <img src="{{ $frontImageUrl }}" alt="NID Front" class="farmer-image">
+                                        </div>
+                                        <div class="col-6">
+                                            <img src="{{ $backImageUrl }}" alt="NID Front" class="farmer-image">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6>Farmer Image</h6>
+                                    <img src="{{ $selfieImageUrl }}" alt="NID Front" class="farmer-image">
+                                </div>
+                            </div>
+                            @foreach(['nid_name_english', 'farmer_gender', 'nid_number', 'nid_dob',
+                            'nid_father_name_english',
+                            'nid_mother_name_english', 'marital_status'] as $field)
+                            <div class="row detail-row">
+                                <div class="col-md-4">
+                                    <span>{{ ucfirst(str_replace('_', ' ', $field)) }}</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>
+                                        {{
+                                        $value['farmer_info']['values'][$field]['value'] ?? 'N/A'
+                                        }}
+                                    </span>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <button class="btn btn-outline-dark">
+                                        <i class="ti-comment-alt"> Comment</i>
+                                    </button>
+                                </div>
+                            </div>
+                            @endforeach
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 2: Permanent Address (NID type) -->
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                aria-expanded="false" aria-controls="collapseTwo">
+                                <b>2. স্থায়ী ঠিকানা (NID অনুযায়ী)</b>
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="row">
+                                <b>স্থায়ী ঠিকানা (NID অনুযায়ী)</b>
+                            </div>
+                            <!-- Iterate over the address fields -->
+                            @foreach(['registered_thana', 'registered_district', 'registered_division',
+                            'registered_village'] as $field)
+                            <div class="row detail-row">
+                                <div class="col-md-4">
+                                    <span>{{ ucfirst(str_replace('_', ' ', $field)) }}</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $value['farmer_info']['values']['permanent_address']['children'][$field]['value']
+                                        ?? 'N/A'
+                                        }}</span>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <button class="btn btn-outline-dark">
+                                        <i class="ti-comment-alt"> Comment</i>
+                                    </button>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 3: Guarantor Pages -->
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                                aria-expanded="false" aria-controls="collapseThree">
+                                <b>3. গ্যারান্টরের তথ্য</b>
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="row">
+                            </div>
+                            <!-- Loop over the guarantor pages -->
+                            @foreach($data['guarantor']['pages'] as $page)
+                            @php
+                            // dd($page);
+                            @endphp
+                            <div class="col-md-12">
+                                <h6>Guarantor Page: {{ $page['label'] ?? 'N/A' }}
+                                </h6>
+                            </div>
+
+                            <div class="row detail-row">
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['guarantor_name_english']['label']
+                                        ?? 'N/A'
+                                        }}
+                                    </span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['guarantor_name_english']['value']
+                                        ?? 'N/A'
+                                        }}</span>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <button class="btn btn-outline-dark">
+                                        <i class="ti-comment-alt"> Comment</i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="row detail-row">
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['guarantor_nid_number']['label']
+                                        ?? 'N/A'
+                                        }}
+                                    </span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['guarantor_nid_number']['value']
+                                        ?? 'N/A'
+                                        }}</span>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <button class="btn btn-outline-dark">
+                                        <i class="ti-comment-alt"> Comment</i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="row detail-row">
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['guarantor_dob']['label']
+                                        ?? 'N/A'
+                                        }}
+                                    </span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['guarantor_dob']['value']
+                                        ?? 'N/A'
+                                        }}</span>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <button class="btn btn-outline-dark">
+                                        <i class="ti-comment-alt"> Comment</i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="row detail-row">
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['guarantor_father_name']['label']
+                                        ?? 'N/A'
+                                        }}
+                                    </span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['guarantor_father_name']['value']
+                                        ?? 'N/A'
+                                        }}</span>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <button class="btn btn-outline-dark">
+                                        <i class="ti-comment-alt"> Comment</i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="row detail-row">
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['guarantor_mother_name']['label']
+                                        ?? 'N/A'
+                                        }}
+                                    </span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['guarantor_mother_name']['value']
+                                        ?? 'N/A'
+                                        }}</span>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <button class="btn btn-outline-dark">
+                                        <i class="ti-comment-alt"> Comment</i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="row detail-row">
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['guarantor_relationship']['label']
+                                        ?? 'N/A'
+                                        }}
+                                    </span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['guarantor_relationship']['value']
+                                        ?? 'N/A'
+                                        }}</span>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <button class="btn btn-outline-dark">
+                                        <i class="ti-comment-alt"> Comment</i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="row detail-row">
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['is_nominee_guarantor_different']['label']
+                                        ?? 'N/A'
+                                        }}
+                                    </span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['is_nominee_guarantor_different']['value'][0]
+                                        ?? 'N/A'
+                                        }}</span>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <button class="btn btn-outline-dark">
+                                        <i class="ti-comment-alt"> Comment</i>
+                                    </button>
+                                </div>
+                            </div>
+                            @php
+                            $url = 'https://wegro-agent-production.s3.ap-southeast-1.amazonaws.com/';
+                            $nominee_front_image = $page['values']['guarantor_trade_licence_upload']['value'] ?? null;
+                            $nominee_back_image = $page['values']['police_clearance']['value'] ?? null;
+
+                            $frontImageUrl = $front_image ? $url . $nominee_front_image :
+                            '/api/placeholder/400/300';
+                            $backImageUrl = $back_image ? $url . $nominee_back_image :
+                            '/api/placeholder/400/300';
+                            @endphp
+                            <div class="row detail-row">
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['guarantor_trade_licence_upload']['label']
+                                        ?? 'N/A'
+                                        }}
+                                    </span>
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="{{ $frontImageUrl ?? 'N/A' }}" alt="nominee NID Front"
+                                        class="farmer-image">
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <button class="btn btn-outline-dark">
+                                        <i class="ti-comment-alt"> Comment</i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="row detail-row">
+                                <div class="col-md-4">
+                                    <span>{{
+                                        $page['values']['police_clearance']['label']
+                                        ?? 'N/A'
+                                        }}
+                                    </span>
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="{{ $backImageUrl ?? 'N/A' }}" alt="nominee NID Front"
+                                        class="farmer-image">
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <button class="btn btn-outline-dark">
+                                        <i class="ti-comment-alt"> Comment</i>
+                                    </button>
+                                </div>
+                            </div>
+                            @endforeach
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
-  </div>
 </div>
 @endsection
-
-@push('styles')
-<style>
-    pre {
-        background-color: #f8f9fa;
-        border: 1px solid #e9ecef;
-        border-radius: 4px;
-        padding: 10px;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-    }
-
-</style>
-@endpush
